@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&family=Nunito:wght@300;400;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --heading-font: 'Baloo 2', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --body-font: 'Nunito', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+html, body {
+  font-family: var(--body-font);
+}
+
+/* headings */
+h1, h2, h3, .heading {
+  font-family: var(--heading-font);
+  /* You can adjust weight/size in Tailwind or here */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 90px; /* Adjust for header */
+}
