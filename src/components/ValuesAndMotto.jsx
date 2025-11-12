@@ -43,7 +43,7 @@ export default function ValuesAndMotto() {
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-[#FFF6F2] to-[#ffe8de] flex flex-col items-center">
       <h2 className="text-[#4764c7] font-extrabold text-5xl sm:text-6xl text-center mb-14">
-        Our Values & Motto
+        Our Core Values
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl">

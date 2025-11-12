@@ -403,65 +403,6 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Our Team */}
-      <section ref={teamRef} className="py-20 md:py-24 bg-gradient-to-b from-pink-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: -30 }}
-            animate={teamInView ? { opacity: 1, y: 0 } : {}}
-            className="text-[#4764c7] font-extrabold text-4xl sm:text-5xl md:text-6xl text-center mb-12 md:mb-16"
-          >
-            Meet Our Trained Guides
-          </motion.h2>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate={teamInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12"
-          >
-            {team.map((member, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeInUp}
-                whileHover={{ y: -12 }}
-                className="bg-white rounded-3xl shadow-2xl overflow-hidden text-center"
-              >
-                <div className="h-72 overflow-hidden bg-gradient-to-b from-purple-100 to-pink-100">
-                  <motion.img
-                    src={member.img}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.12 }}
-                    transition={{ duration: 0.6 }}
-                  />
-                </div>
-                <div className="p-6 md:p-8">
-                  <h3 className="text-2xl md:text-3xl font-extrabold text-black mb-2">{member.name}</h3>
-                  <p className="text-purple-600 font-bold text-base md:text-lg mb-4">{member.role}</p>
-                  <p className="text-black italic text-base md:text-lg leading-relaxed px-3 font-medium">
-                    "{member.quote}"
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={teamInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.8 }}
-            className="text-center mt-14 md:mt-16 px-4"
-          >
-            <p className="text-lg md:text-xl text-black max-w-4xl mx-auto leading-relaxed font-semibold">
-              <strong>Trained Guides, Not Just Teachers:</strong> Every educator undergoes rigorous Montessori training 
-              and continuous professional development to observe, guide, and intervene only when needed — 
-              fostering true independence and measurable progress.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="py-20 md:py-24 bg-gradient-to-r from-[#4764c7] to-purple-700 text-white text-center">
         <motion.div

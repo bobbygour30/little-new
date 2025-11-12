@@ -3,6 +3,13 @@ import { motion } from "framer-motion";
 import { GiDiamondHard, GiBrain, GiHeartInside } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
+// High-quality, royalty-free images (replace with your own if needed)
+const IMAGES = [
+  "https://images.unsplash.com/photo-1589856198357-4cca29e342c7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGtpZHMlMjBwbGF5c2Nob29sfGVufDB8fDB8fHww", // Curriculum
+  "https://images.unsplash.com/photo-1589104759909-e355f8999f7e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGtpZHMlMjBteXRob2xvZ3l8ZW58MHx8MHx8fDA%3D", // 6T Tech
+  "https://plus.unsplash.com/premium_photo-1686920244658-f3db03fe22e3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2lkcyUyMHBsYXlpbmd8ZW58MHx8MHx8fDA%3D", // Child-Centric
+];
+
 const sections = [
   {
     num: "01",
@@ -47,15 +54,15 @@ export default function WhyChooseLittleCanvas() {
   return (
     <section className="relative bg-gradient-to-b from-purple-50 via-pink-50 to-yellow-50 py-24 px-4 overflow-hidden">
       {/* Floating Magic Dust */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none opacity-50">
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            animate={{ y: [0, -50, 0], opacity: [0.3, 0.7, 0.3] }}
-            transition={{ duration: 12 + i, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute w-4 h-4 bg-yellow-300 rounded-full blur-sm"
+            animate={{ y: [0, -60, 0], opacity: [0.2, 0.6, 0.2] }}
+            transition={{ duration: 15 + i * 2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute w-3 h-3 bg-yellow-300 rounded-full blur-md"
             style={{
-              top: `${10 + i * 12}%`,
+              top: `${15 + i * 10}%`,
               left: `${10 + (i % 2) * 80}%`,
             }}
           />
@@ -74,53 +81,71 @@ export default function WhyChooseLittleCanvas() {
             Why Choose Little Canvas Pre-School?
           </h2>
           <p className="mt-8 text-lg sm:text-xl md:text-2xl text-black font-semibold max-w-5xl mx-auto leading-relaxed px-4">
-            Choosing Little Canvas means investing in a structured, future-focused educational foundation built on a proven philosophy and integrated with modern technology. We are dedicated to ensuring your child is not just prepared for the next grade, but for a lifetime of learning and self-education.
+            Choosing Little Canvas means investing in a structured, future-focused educational foundation built on a proven philosophy and integrated with modern technology.
           </p>
         </motion.div>
 
-        {/* Sections */}
-        <div className="space-y-8">
+        {/* Responsive Cards with Images & Icons */}
+        <div className="grid gap-12 md:gap-16">
           {sections.map((sec, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.15 }}
+              transition={{ delay: idx * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white/75 backdrop-blur-xl rounded-3xl shadow-2xl border-4 border-white/60 overflow-hidden"
+              className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border-4 border-white/60 overflow-hidden"
             >
-              {/* Header */}
-              <div className={`p-6 sm:p-8 bg-gradient-to-r ${sec.gradient} text-white`}>
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                  <div className="text-6xl sm:text-7xl">{sec.icon}</div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-2">
-                      <span className="text-4xl sm:text-5xl font-black">{sec.num}</span>
-                      <h3 className="text-2xl sm:text-3xl font-bold">{sec.title}</h3>
-                    </div>
-                    <p className="text-base sm:text-lg opacity-95 leading-relaxed">{sec.desc}</p>
+              <div className="grid md:grid-cols-2">
+                {/* Image */}
+                <div className="relative h-64 md:h-full overflow-hidden">
+                  <img
+                    src={IMAGES[idx]}
+                    alt={sec.title}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <span className="text-5xl font-black drop-shadow-lg">{sec.num}</span>
                   </div>
                 </div>
-              </div>
 
-              {/* Points */}
-              <div className="p-6 sm:p-8 bg-white">
-                <div className="space-y-5">
-                  {sec.points.map((point, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.1 + i * 0.05 }}
-                      viewport={{ once: true }}
-                      className="flex items-start gap-4"
-                    >
-                      <span className="text-2xl mt-0.5 text-purple-600">✦</span>
-                      <p className="text-base sm:text-lg text-black leading-relaxed flex-1 font-medium">
-                        {point}
-                      </p>
-                    </motion.div>
-                  ))}
+                {/* Content with ICON BACK */}
+                <div className="p-6 sm:p-8 flex flex-col justify-center">
+                  {/* Header with Icon */}
+                  <div className={`p-5 rounded-2xl bg-gradient-to-r ${sec.gradient} text-white shadow-xl mb-6 inline-block w-fit`}>
+                    <div className="flex items-center gap-4">
+                      <div className="text-5xl animate-pulse">{sec.icon}</div>
+                      <div>
+                        <h3 className="text-2xl sm:text-3xl font-bold leading-tight">{sec.title}</h3>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
+                    {sec.desc}
+                  </p>
+
+                  {/* Points */}
+                  <div className="space-y-4">
+                    {sec.points.map((point, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.1 + i * 0.05 }}
+                        viewport={{ once: true }}
+                        className="flex items-start gap-3"
+                      >
+                        <span className="text-xl mt-0.5 text-purple-600">✦</span>
+                        <p className="text-base text-gray-700 leading-relaxed flex-1">
+                          {point}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -131,22 +156,23 @@ export default function WhyChooseLittleCanvas() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="text-center mt-24"
         >
           <div className="inline-block bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl p-10 shadow-3xl border-8 border-white/70">
             <h4 className="text-3xl sm:text-4xl font-extrabold text-white mb-5">
               Ready to Give Your Child the Best Start?
             </h4>
             <Link to="/contact">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 bg-white text-purple-700 rounded-full font-bold text-xl shadow-2xl"
-            >
-              Book a Tour Today
-            </motion.button></Link>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-10 py-5 bg-white text-purple-700 rounded-full font-bold text-xl shadow-2xl"
+              >
+                Book a Tour Today
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
       </div>
