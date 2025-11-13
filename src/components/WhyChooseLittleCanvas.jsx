@@ -1,8 +1,9 @@
-import React from "react";
+import React , { useState } from "react";
 import { motion } from "framer-motion";
 import { GiDiamondHard, GiBrain, GiHeartInside } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import assets from "../assets/assets";
+import PopupForm from "./PopupForm";
 
 // High-quality, royalty-free images (replace with your own if needed)
 const IMAGES = [
@@ -52,7 +53,11 @@ const sections = [
 ];
 
 export default function WhyChooseLittleCanvas() {
+  const openPopup = () => setIsPopupOpen(true);
+    const closePopup = () => setIsPopupOpen(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
   return (
+    <>
     <section className="relative bg-gradient-to-b from-purple-50 via-pink-50 to-yellow-50 py-24 px-4 overflow-hidden">
       {/* Floating Magic Dust */}
       <div className="absolute inset-0 pointer-events-none opacity-50">
@@ -223,18 +228,22 @@ export default function WhyChooseLittleCanvas() {
             <h4 className="text-3xl sm:text-4xl font-extrabold text-white mb-5">
               Ready to Give Your Child the Best Start?
             </h4>
-            <Link to="/contact">
+            
               <motion.button
+               onClick={openPopup}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-5 bg-white text-purple-700 rounded-full font-bold text-xl shadow-2xl"
               >
                 Book a Tour Today
               </motion.button>
-            </Link>
+           
           </div>
         </motion.div>
       </div>
     </section>
+    {/* Popup Rendered at Root Level via Portal */}
+      <PopupForm isOpen={isPopupOpen} onClose={closePopup} />
+      </>
   );
 }

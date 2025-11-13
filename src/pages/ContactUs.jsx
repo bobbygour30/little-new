@@ -14,6 +14,7 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import assets from "../assets/assets";
+import PopupForm from "../components/PopupForm";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -26,6 +27,9 @@ const stagger = {
 };
 
 export default function ContactUs() {
+  const openPopup = () => setIsPopupOpen(true);
+  const closePopup = () => setIsPopupOpen(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -235,25 +239,35 @@ export default function ContactUs() {
 
    
           {/* Map */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative rounded-3xl overflow-hidden shadow-2xl"
-          >
+          {/* Map - FULLY RESPONSIVE */}
+<motion.div
+  initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8 }}
+  className="relative rounded-3xl overflow-hidden shadow-2xl h-full min-h-96 lg:min-h-0"
+>
+  {/* Responsive Container with 16:9 aspect ratio on mobile, full height on large screens */}
+  <div className="relative w-full h-full pt-[56.25%] lg:pt-0 lg:h-full">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.123456789!2d77.417303!3d28.7024251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sRiver%20Heights%2C%20Rajnagar%20Extension%2C%20Ghaziabad%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1720000000000!5m2!1sen!2sin"
+      className="absolute top-0 left-0 w-full h-full"
+      style={{ border: 0 }}
+      allowFullScreen=""
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      title="Plot 78, River Heights Location"
+    ></iframe>
+  </div>
 
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.492378188194!2d77.416112315382!3d28.680054982396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfa5e7d5c5c6d%3A0x9a5c5c5c5c5c5c5c!2sRiver%20Heights%2C%20Rajnagar%20Extension%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201017!5e0!3m2!1sen!2sin!4v1698000000000!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              className="relative z-0"
-              title="Little Canvas"
-            ></iframe>
-
-          </motion.div>
+  {/* Optional: Overlay Label (Uncomment if you want it back) */}
+  {/*
+  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white text-center pointer-events-none">
+    <FaMapMarkerAlt className="text-5xl mb-2 animate-bounce" />
+    <p className="text-lg font-bold">Plot 78, River Heights</p>
+    <p className="text-sm">Ghaziabad, UP 201017</p>
+  </div>
+  */}
+</motion.div>
         </div>
       </section>
 
@@ -303,7 +317,7 @@ export default function ContactUs() {
           ))}
         </div>
         <p className="mt-8 text-gray-600 text-lg">
-          Tag us @LittleBlossomsPreschool — we love seeing your little ones shine! [sparkles]
+          Tag us @Littlecanvas — we love seeing your little ones shine! ✦
         </p>
       </section>
 
@@ -321,6 +335,7 @@ export default function ContactUs() {
             Book a FREE tour or virtual meet — spaces fill fast!
           </p>
           <motion.button
+          onClick={openPopup}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="px-12 py-5 bg-white text-[#4764c7] font-bold text-xl rounded-full shadow-xl"
@@ -329,6 +344,8 @@ export default function ContactUs() {
           </motion.button>
         </motion.div>
       </section>
+      {/* Popup Rendered at Root Level via Portal */}
+      <PopupForm isOpen={isPopupOpen} onClose={closePopup} />
     </div>
   );
 }
