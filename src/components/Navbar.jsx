@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import {
   FaHome,
   FaUser,
-  FaBookOpen,
-  FaPenNib,
+  FaBook,
+  FaPen,
   FaLayerGroup,
-  FaPhone,
+  FaMapMarkerAlt, // Replacement for FaLocationDot (existing in react-icons/fa)
   FaBars,
   FaTimes,
   FaChevronDown,
@@ -19,7 +19,6 @@ const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const timeoutRef = useRef(null);
 
-  // Detect screen size
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -56,7 +55,6 @@ const Navbar = () => {
 
   return (
     <div className="w-full">
-      {/* Main Navbar */}
       <div className="sticky top-0 z-50 bg-white shadow-md">
         <div className="flex justify-between items-center px-4 md:px-8 py-3 max-w-7xl mx-auto">
           {/* Logo */}
@@ -66,7 +64,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Hamburger (Mobile) */}
+          {/* Hamburger */}
           <button
             onClick={toggleMenu}
             className="md:hidden text-purple-700 text-2xl focus:outline-none"
@@ -92,7 +90,7 @@ const Navbar = () => {
                 HOME
               </Link>
 
-              {/* ABOUT with Dropdown - Purple */}
+              {/* ABOUT - Purple */}
               <div
                 className="relative w-full md:w-auto"
                 onMouseEnter={handleMouseEnter}
@@ -111,7 +109,7 @@ const Navbar = () => {
                   />
                 </div>
 
-                {/* Dropdown Menu */}
+                {/* Dropdown */}
                 <div
                   className={`${
                     isMobile
@@ -122,7 +120,6 @@ const Navbar = () => {
                       ? "max-h-96 opacity-100"
                       : "max-h-0 opacity-0"
                   } md:absolute md:left-0 md:top-full md:mt-2 w-full md:w-48 bg-white md:rounded-md md:shadow-lg overflow-hidden transition-all duration-300 ease-in-out z-50`}
-                  style={{ transition: "max-height 0.3s ease, opacity 0.3s ease" }}
                 >
                   <Link
                     to="/about-us"
@@ -154,7 +151,7 @@ const Navbar = () => {
                 onClick={closeMobileMenu}
                 className="flex items-center text-orange-500 hover:underline transition font-medium"
               >
-                <FaBookOpen className="mr-2 text-lg" />
+                <FaBook className="mr-2 text-lg" />
                 CLASSES
               </Link>
 
@@ -164,7 +161,7 @@ const Navbar = () => {
                 onClick={closeMobileMenu}
                 className="flex items-center text-blue-500 hover:underline transition font-medium"
               >
-                <FaPenNib className="mr-2 text-lg" />
+                <FaPen className="mr-2 text-lg" />
                 BLOG
               </Link>
 
@@ -178,13 +175,13 @@ const Navbar = () => {
                 PAGES
               </Link>
 
-              {/* CONTACT - Dark Blue */}
+              {/* CONTACT - Dark Blue (Using FaMapMarkerAlt as replacement) */}
               <Link
                 to="/contact"
                 onClick={closeMobileMenu}
                 className="flex items-center text-blue-900 hover:underline transition font-medium"
               >
-                <FaPhone className="mr-2 text-lg" />
+                <FaMapMarkerAlt className="mr-2 text-lg" />
                 CONTACT
               </Link>
             </div>
