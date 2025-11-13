@@ -84,7 +84,7 @@ const Navbar = () => {
               <Link
                 to="/"
                 onClick={closeMobileMenu}
-                className="flex items-center text-green-500 hover:underline transition font-medium"
+                className="flex items-center text-green-500 underline transition font-medium "
               >
                 <FaHome className="mr-2 text-lg" />
                 HOME
@@ -98,7 +98,7 @@ const Navbar = () => {
               >
                 <div
                   onClick={toggleAbout}
-                  className="flex items-center text-purple-700 hover:underline transition cursor-pointer w-full font-medium"
+                  className="flex items-center text-purple-700 underline transition cursor-pointer w-full font-medium"
                 >
                   <FaUser className="mr-2 text-lg" />
                   ABOUT
@@ -149,7 +149,7 @@ const Navbar = () => {
               <Link
                 to="/programs"
                 onClick={closeMobileMenu}
-                className="flex items-center text-orange-500 hover:underline transition font-medium"
+                className="flex items-center text-orange-500 underline transition font-medium"
               >
                 <FaBook className="mr-2 text-lg" />
                 CLASSES
@@ -159,7 +159,7 @@ const Navbar = () => {
               <Link
                 to="/blog"
                 onClick={closeMobileMenu}
-                className="flex items-center text-blue-500 hover:underline transition font-medium"
+                className="flex items-center text-blue-500 underline transition font-medium"
               >
                 <FaPen className="mr-2 text-lg" />
                 BLOG
@@ -169,7 +169,7 @@ const Navbar = () => {
               <Link
                 to="/pages"
                 onClick={closeMobileMenu}
-                className="flex items-center text-red-600 hover:underline transition font-medium"
+                className="flex items-center text-red-600 underline transition font-medium"
               >
                 <FaLayerGroup className="mr-2 text-lg" />
                 PAGES
@@ -179,7 +179,7 @@ const Navbar = () => {
               <Link
                 to="/contact"
                 onClick={closeMobileMenu}
-                className="flex items-center text-blue-900 hover:underline transition font-medium"
+                className="flex items-center text-blue-900 underline transition font-medium"
               >
                 <FaMapMarkerAlt className="mr-2 text-lg" />
                 CONTACT

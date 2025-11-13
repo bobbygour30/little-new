@@ -126,7 +126,7 @@ export default function ContactUs() {
               {
                 icon: <FaMapMarkerAlt />,
                 title: "Visit Us",
-                info: "1Plot 78, River Heights, Rajnagar Extention,",
+                info: "Plot 78, River Heights, Rajnagar Extention,",
                 sub: " Ghaziabad, UP, 201017",
                 color: "from-blue-400 to-cyan-500",
               },
