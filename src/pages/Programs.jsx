@@ -251,7 +251,15 @@ export default function Programs() {
             transition={{ duration: 0.8 }}
             className="text-white font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3"
           >
-            Programs
+            Our Programs
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-white font-extrabold text-lg sm:text-xl md:text-2xl lg:text-3xl mb-3"
+          >
+            Full curriculum details - every milestone, every skill
           </motion.h1>
 
         </div>
@@ -275,44 +283,16 @@ export default function Programs() {
       {/* ================================================================== */}
 
       {/* Main Content */}
-      <section className="py-12 sm:py-20 bg-gradient-to-b from-yellow-50 via-pink-50 to-cyan-50 relative overflow-hidden">
+      <section className=" bg-gradient-to-b from-yellow-50 via-pink-50 to-cyan-50 relative overflow-hidden">
         <ScrollToHashElement />
         <FloatingSparkles />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           {/* Header */}
           <motion.div className="text-center mb-12 sm:mb-16">
-            <motion.h1
-              className="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, type: "spring" }}
-              viewport={{ once: true }}
-            >
-              Our Magical Programs
-            </motion.h1>
+            
 
-            <motion.p
-              className="text-base sm:text-xl text-gray-700 mt-3 sm:mt-4 font-medium max-w-2xl mx-auto px-4"
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              Full curriculum details – every milestone, every skill
-            </motion.p>
-
-            <motion.div className="flex justify-center gap-3 sm:gap-4 mt-4 sm:mt-6 flex-wrap">
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ y: [0, -12, 0] }}
-                  transition={{ repeat: Infinity, duration: 2, delay: i * 0.2 }}
-                >
-                  <GiButterfly className="w-10 h-10 sm:w-12 sm:h-12 text-pink-400" />
-                </motion.div>
-              ))}
-            </motion.div>
+            
           </motion.div>
 
           {/* All Programs */}
