@@ -1,20 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import {
-  FaClock,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaCheckCircle,
-  FaTwitter,
-  FaVimeoV,
-  FaWifi,
+  FaHome,
   FaUser,
-  FaBook,
+  FaBookOpen,
   FaPenNib,
   FaLayerGroup,
-  FaSearch,
-  FaShoppingBasket,
+  FaPhone,
   FaBars,
   FaTimes,
+  FaChevronDown,
 } from "react-icons/fa";
 import assets from "../assets/assets";
 import { Link } from "react-router-dom";
@@ -28,29 +22,23 @@ const Navbar = () => {
   // Detect screen size
   useEffect(() => {
     const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768); // md breakpoint
+      setIsMobile(window.innerWidth < 768);
     };
-
     checkIfMobile();
     window.addEventListener("resize", checkIfMobile);
-
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  // Close mobile menu when clicking a link
   const closeMobileMenu = () => setIsMenuOpen(false);
 
-  // Toggle About dropdown (for mobile)
   const toggleAbout = (e) => {
     if (isMobile) {
-      e.preventDefault(); // Prevent navigation on first tap
+      e.preventDefault();
       setIsAboutOpen(!isAboutOpen);
     }
   };
 
-  // Hover handlers (desktop only)
   const handleMouseEnter = () => {
     if (!isMobile && timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -68,17 +56,17 @@ const Navbar = () => {
 
   return (
     <div className="w-full">
-      {/* ======= Main Navbar ======= */}
+      {/* Main Navbar */}
       <div className="sticky top-0 z-50 bg-white shadow-md">
         <div className="flex justify-between items-center px-4 md:px-8 py-3 max-w-7xl mx-auto">
-          {/* ======= Logo ======= */}
+          {/* Logo */}
           <div className="flex items-center">
             <Link to="/">
               <img src={assets.logo} alt="logo" className="w-50 sm:w-82 sm:h-20" />
             </Link>
           </div>
 
-          {/* ======= Hamburger (Mobile) ======= */}
+          {/* Hamburger (Mobile) */}
           <button
             onClick={toggleMenu}
             className="md:hidden text-purple-700 text-2xl focus:outline-none"
@@ -86,7 +74,7 @@ const Navbar = () => {
             {isMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
 
-          {/* ======= Nav Links ======= */}
+          {/* Nav Links */}
           <div
             className={`${
               isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
@@ -94,19 +82,17 @@ const Navbar = () => {
           >
             <div className="flex flex-col md:flex-row md:space-x-8 items-start md:items-center px-6 md:px-0 py-4 md:py-0 space-y-3 md:space-y-0">
               
-              {/* HOME */}
+              {/* HOME - Green */}
               <Link
                 to="/"
                 onClick={closeMobileMenu}
-                className="flex items-center text-green-500 hover:underline transition"
+                className="flex items-center text-green-500 hover:underline transition font-medium"
               >
-                <svg className="inline mr-1" width="18" height="18" viewBox="0 0 20 20">
-                  <path fill="currentColor" d="M10 20l-6-6h3V8h6v6h3l-6 6z" />
-                </svg>
+                <FaHome className="mr-2 text-lg" />
                 HOME
               </Link>
 
-              {/* ABOUT with Dropdown */}
+              {/* ABOUT with Dropdown - Purple */}
               <div
                 className="relative w-full md:w-auto"
                 onMouseEnter={handleMouseEnter}
@@ -114,16 +100,15 @@ const Navbar = () => {
               >
                 <div
                   onClick={toggleAbout}
-                  className="flex items-center text-purple-700 hover:underline transition cursor-pointer w-full"
+                  className="flex items-center text-purple-700 hover:underline transition cursor-pointer w-full font-medium"
                 >
-                  <FaUser className="mr-1" /> ABOUT
-                  <span
-                    className={`ml-1 transition-transform duration-300 ${
+                  <FaUser className="mr-2 text-lg" />
+                  ABOUT
+                  <FaChevronDown
+                    className={`ml-1 text-xs transition-transform duration-300 ${
                       isAboutOpen ? "rotate-180" : ""
                     }`}
-                  >
-                    ▼
-                  </span>
+                  />
                 </div>
 
                 {/* Dropdown Menu */}
@@ -136,7 +121,7 @@ const Navbar = () => {
                       : isAboutOpen
                       ? "max-h-96 opacity-100"
                       : "max-h-0 opacity-0"
-                  } md:absolute md:left-0 md:top-full md:mt-2 w-full md:w-48 bg-white md:rounded-md md:shadow-lg overflow-hidden transition-all duration-300 ease-in-out`}
+                  } md:absolute md:left-0 md:top-full md:mt-2 w-full md:w-48 bg-white md:rounded-md md:shadow-lg overflow-hidden transition-all duration-300 ease-in-out z-50`}
                   style={{ transition: "max-height 0.3s ease, opacity 0.3s ease" }}
                 >
                   <Link
@@ -163,22 +148,44 @@ const Navbar = () => {
                 </div>
               </div>
 
-              {/* PROGRAMS */}
+              {/* CLASSES - Orange */}
               <Link
                 to="/programs"
                 onClick={closeMobileMenu}
-                className="flex items-center text-blue-400 hover:underline transition"
+                className="flex items-center text-orange-500 hover:underline transition font-medium"
               >
-                <FaPenNib className="mr-1" /> Programs
+                <FaBookOpen className="mr-2 text-lg" />
+                CLASSES
               </Link>
 
-              {/* CONTACT */}
+              {/* BLOG - Blue */}
+              <Link
+                to="/blog"
+                onClick={closeMobileMenu}
+                className="flex items-center text-blue-500 hover:underline transition font-medium"
+              >
+                <FaPenNib className="mr-2 text-lg" />
+                BLOG
+              </Link>
+
+              {/* PAGES - Red */}
+              <Link
+                to="/pages"
+                onClick={closeMobileMenu}
+                className="flex items-center text-red-600 hover:underline transition font-medium"
+              >
+                <FaLayerGroup className="mr-2 text-lg" />
+                PAGES
+              </Link>
+
+              {/* CONTACT - Dark Blue */}
               <Link
                 to="/contact"
                 onClick={closeMobileMenu}
-                className="flex items-center text-blue-900 hover:underline transition"
+                className="flex items-center text-blue-900 hover:underline transition font-medium"
               >
-                <FaMapMarkerAlt className="mr-1" /> CONTACT
+                <FaPhone className="mr-2 text-lg" />
+                CONTACT
               </Link>
             </div>
           </div>
