@@ -362,47 +362,6 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section ref={timelineRef} className="py-20 md:py-24 bg-gradient-to-b from-purple-50 to-white relative">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <h2 className="text-[#4764c7] font-extrabold text-4xl sm:text-5xl md:text-6xl text-center mb-14 md:mb-18">
-            Our Journey of Purpose & Progress
-          </h2>
-
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1.5 bg-gradient-to-b from-orange-300 to-purple-400 h-full hidden md:block opacity-60 z-0"></div>
-
-            <div className="space-y-14 md:space-y-18">
-              {timeline.map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: idx % 2 === 0 ? -100 : 100 }}
-                  animate={timelineInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.8, delay: idx * 0.3 }}
-                  className="flex flex-col items-center mb-0 relative z-10"
-                >
-                  <div className="w-24 h-24 bg-gradient-to-br from-orange-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-3xl shadow-2xl z-10 border-8 border-white mx-auto mb-8 md:mb-10">
-                    {item.year}
-                  </div>
-
-                  <div className="w-full max-w-lg px-4 md:px-6 text-center">
-                    <div className="bg-white p-6 md:p-8 rounded-3xl shadow-2xl border-4 border-dotted border-orange-300">
-                      <span className="text-sm font-bold text-orange-600 uppercase tracking-wider block mb-3">{item.year}</span>
-                      <h3 className="text-2xl md:text-3xl font-extrabold text-[#4764c7] mb-3">{item.title}</h3>
-                      <p className="text-base md:text-lg text-black leading-relaxed font-medium">{item.desc}</p>
-                    </div>
-                  </div>
-
-                  {idx < timeline.length - 1 && (
-                    <div className="w-1.5 h-16 md:hidden bg-gradient-to-b from-orange-300 to-purple-400 mx-auto mt-8"></div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="py-20 md:py-24 bg-gradient-to-r from-[#4764c7] to-purple-700 text-white text-center">
         <motion.div
