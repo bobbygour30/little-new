@@ -2,12 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import { GiDiamondHard, GiBrain, GiHeartInside } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import assets from "../assets/assets";
 
 // High-quality, royalty-free images (replace with your own if needed)
 const IMAGES = [
-  "https://images.unsplash.com/photo-1589856198357-4cca29e342c7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGtpZHMlMjBwbGF5c2Nob29sfGVufDB8fDB8fHww", // Curriculum
-  "https://images.unsplash.com/photo-1589104759909-e355f8999f7e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGtpZHMlMjBteXRob2xvZ3l8ZW58MHx8MHx8fDA%3D", // 6T Tech
-  "https://plus.unsplash.com/premium_photo-1686920244658-f3db03fe22e3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2lkcyUyMHBsYXlpbmd8ZW58MHx8MHx8fDA%3D", // Child-Centric
+  assets.why1, // Curriculum
+  assets.why4, // 6T Tech
+  assets.why3, // Child-Centric
 ];
 
 const sections = [
@@ -97,56 +98,114 @@ export default function WhyChooseLittleCanvas() {
               className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border-4 border-white/60 overflow-hidden"
             >
               <div className="grid md:grid-cols-2">
-                {/* Image */}
-                <div className="relative h-64 md:h-full overflow-hidden">
-                  <img
-                    src={IMAGES[idx]}
-                    alt={sec.title}
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <span className="text-5xl font-black drop-shadow-lg">{sec.num}</span>
-                  </div>
-                </div>
+                {/* Conditional Rendering: Reverse only for 2nd card (idx === 1) */}
+                {idx === 1 ? (
+                  <>
+                    {/* Content (Left) */}
+                    <div className="p-6 sm:p-8 flex flex-col justify-center order-1 md:order-1">
+                      {/* Header with Icon */}
+                      <div className={`p-5 rounded-2xl bg-gradient-to-r ${sec.gradient} text-white shadow-xl mb-6 inline-block w-fit`}>
+                        <div className="flex items-center gap-4">
+                          <div className="text-5xl animate-pulse">{sec.icon}</div>
+                          <div>
+                            <h3 className="text-2xl sm:text-3xl font-bold leading-tight">{sec.title}</h3>
+                          </div>
+                        </div>
+                      </div>
 
-                {/* Content with ICON BACK */}
-                <div className="p-6 sm:p-8 flex flex-col justify-center">
-                  {/* Header with Icon */}
-                  <div className={`p-5 rounded-2xl bg-gradient-to-r ${sec.gradient} text-white shadow-xl mb-6 inline-block w-fit`}>
-                    <div className="flex items-center gap-4">
-                      <div className="text-5xl animate-pulse">{sec.icon}</div>
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl font-bold leading-tight">{sec.title}</h3>
+                      {/* Description */}
+                      <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
+                        {sec.desc}
+                      </p>
+
+                      {/* Points */}
+                      <div className="space-y-4">
+                        {sec.points.map((point, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: idx * 0.1 + i * 0.05 }}
+                            viewport={{ once: true }}
+                            className="flex items-start gap-3"
+                          >
+                            <span className="text-xl mt-0.5 text-purple-600">✦</span>
+                            <p className="text-base text-gray-700 leading-relaxed flex-1">
+                              {point}
+                            </p>
+                          </motion.div>
+                        ))}
                       </div>
                     </div>
-                  </div>
 
-                  {/* Description */}
-                  <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
-                    {sec.desc}
-                  </p>
+                    {/* Image (Right) */}
+                    <div className="relative h-64 md:h-full overflow-hidden order-2 md:order-2">
+                      <img
+                        src={IMAGES[idx]}
+                        alt={sec.title}
+                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 text-white">
+                        <span className="text-5xl font-black drop-shadow-lg">{sec.num}</span>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* Image (Left) */}
+                    <div className="relative h-64 md:h-full overflow-hidden">
+                      <img
+                        src={IMAGES[idx]}
+                        alt={sec.title}
+                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 text-white">
+                        <span className="text-5xl font-black drop-shadow-lg">{sec.num}</span>
+                      </div>
+                    </div>
 
-                  {/* Points */}
-                  <div className="space-y-4">
-                    {sec.points.map((point, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: idx * 0.1 + i * 0.05 }}
-                        viewport={{ once: true }}
-                        className="flex items-start gap-3"
-                      >
-                        <span className="text-xl mt-0.5 text-purple-600">✦</span>
-                        <p className="text-base text-gray-700 leading-relaxed flex-1">
-                          {point}
-                        </p>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
+                    {/* Content (Right) */}
+                    <div className="p-6 sm:p-8 flex flex-col justify-center">
+                      {/* Header with Icon */}
+                      <div className={`p-5 rounded-2xl bg-gradient-to-r ${sec.gradient} text-white shadow-xl mb-6 inline-block w-fit`}>
+                        <div className="flex items-center gap-4">
+                          <div className="text-5xl animate-pulse">{sec.icon}</div>
+                          <div>
+                            <h3 className="text-2xl sm:text-3xl font-bold leading-tight">{sec.title}</h3>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
+                        {sec.desc}
+                      </p>
+
+                      {/* Points */}
+                      <div className="space-y-4">
+                        {sec.points.map((point, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: idx * 0.1 + i * 0.05 }}
+                            viewport={{ once: true }}
+                            className="flex items-start gap-3"
+                          >
+                            <span className="text-xl mt-0.5 text-purple-600">✦</span>
+                            <p className="text-base text-gray-700 leading-relaxed flex-1">
+                              {point}
+                            </p>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
             </motion.div>
           ))}

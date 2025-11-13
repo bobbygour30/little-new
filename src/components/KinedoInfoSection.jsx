@@ -145,7 +145,7 @@ export default function KinedoInfoSection() {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1614113036347-9f60df80730a?w=600&auto=format&fit=crop&q=60"
+                  src="https://thumbs.dreamstime.com/b/playground-colorful-fun-exciting-machine-small-kids-children-school-play-area-backyard-green-grass-filed-city-playground-371448200.jpg"
                   alt="Happy children playing"
                   className="w-full h-full object-cover rounded-full"
                 />

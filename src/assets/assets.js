@@ -4,13 +4,21 @@ import programs from "./programs.jpeg";
 import contact from "./contact.jpg";
 import bg from "./bg.jpg";
 import learning from "./learning.jpeg";
+import why1 from "./why1.jpeg";
+import why2 from "./why2.jpeg";
+import why3 from "./why3.jpeg";
+import why4 from "./why4.jpeg";
 const assets = {
     logo,
     about,
     programs,
     contact,
     bg,
-    learning
+    learning,
+    why1,
+    why2,
+    why3,
+    why4
 };
 
 export default assets;
