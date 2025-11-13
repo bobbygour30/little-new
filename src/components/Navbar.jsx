@@ -5,7 +5,7 @@ import {
   FaBook,
   FaPen,
   FaLayerGroup,
-  FaMapMarkerAlt, // Replacement for FaLocationDot (existing in react-icons/fa)
+  FaMapMarkerAlt,
   FaBars,
   FaTimes,
   FaChevronDown,
@@ -78,27 +78,27 @@ const Navbar = () => {
               isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
             } md:max-h-full md:opacity-100 overflow-hidden md:overflow-visible transition-all duration-500 ease-in-out flex flex-col md:flex-row md:items-center md:space-x-8 absolute md:static left-0 top-full w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none z-40`}
           >
-            <div className="flex flex-col md:flex-row md:space-x-8 items-start md:items-center px-6 md:px-0 py-4 md:py-0 space-y-3 md:space-y-0">
+            <div className="flex flex-col md:flex-row md:space-x-8 items-start md:items-center px-6 md:px-0 py-4 md:py-0 space-y-3 md:space-y-0 w-full">
               
-              {/* HOME - Green */}
+              {/* HOME */}
               <Link
                 to="/"
                 onClick={closeMobileMenu}
-                className="flex items-center text-green-500 underline transition font-medium "
+                className="flex items-center text-green-500 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
               >
                 <FaHome className="mr-2 text-lg" />
                 HOME
               </Link>
 
-              {/* ABOUT - Purple */}
+              {/* ABOUT */}
               <div
-                className="relative w-full md:w-auto"
+                className="relative w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
                 <div
                   onClick={toggleAbout}
-                  className="flex items-center text-purple-700 underline transition cursor-pointer w-full font-medium"
+                  className="flex items-center text-purple-700 hover:underline transition cursor-pointer w-full font-medium"
                 >
                   <FaUser className="mr-2 text-lg" />
                   ABOUT
@@ -145,41 +145,41 @@ const Navbar = () => {
                 </div>
               </div>
 
-              {/* CLASSES - Orange */}
+              {/* CLASSES */}
               <Link
                 to="/programs"
                 onClick={closeMobileMenu}
-                className="flex items-center text-orange-500 underline transition font-medium"
+                className="flex items-center text-orange-500 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
               >
                 <FaBook className="mr-2 text-lg" />
                 CLASSES
               </Link>
 
-              {/* BLOG - Blue */}
+              {/* BLOG */}
               <Link
                 to="/blog"
                 onClick={closeMobileMenu}
-                className="flex items-center text-blue-500 underline transition font-medium"
+                className="flex items-center text-blue-500 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
               >
                 <FaPen className="mr-2 text-lg" />
                 BLOG
               </Link>
 
-              {/* PAGES - Red */}
+              {/* PAGES */}
               <Link
                 to="/pages"
                 onClick={closeMobileMenu}
-                className="flex items-center text-red-600 underline transition font-medium"
+                className="flex items-center text-red-600 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
               >
                 <FaLayerGroup className="mr-2 text-lg" />
                 PAGES
               </Link>
 
-              {/* CONTACT - Dark Blue (Using FaMapMarkerAlt as replacement) */}
+              {/* CONTACT */}
               <Link
                 to="/contact"
                 onClick={closeMobileMenu}
-                className="flex items-center text-blue-900 underline transition font-medium"
+                className="flex items-center text-blue-900 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
               >
                 <FaMapMarkerAlt className="mr-2 text-lg" />
                 CONTACT
