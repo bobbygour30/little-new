@@ -6,9 +6,9 @@ import assets from "../assets/assets";
 
 // High-quality, royalty-free images (replace with your own if needed)
 const IMAGES = [
-  assets.why1, // Curriculum
-  assets.why4, // 6T Tech
-  assets.why3, // Child-Centric
+  assets.why5, // Curriculum
+  assets.why1, // 6T Tech
+  assets.why6, // Child-Centric
 ];
 
 const sections = [
@@ -95,30 +95,26 @@ export default function WhyChoose() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border-4 border-white/60 overflow-hidden"
+              className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border-4 border-white/60 overflow-hidden
+                         h-[60vh] md:h-[90vh] h-auto flex md:items-center"
             >
-              <div className={`grid md:grid-cols-2 ${idx === 1 ? "md:grid-cols-2-reverse" : ""}`}>
-                {/* Conditionally swap order: Image on right only for 2nd card (idx === 1) */}
+              <div className={`grid md:grid-cols-2 w-full h-full ${idx === 1 ? "md:grid-cols-2-reverse" : ""}`}>
+                {/* Conditional Layout: Image on right only for 2nd card */}
                 {idx === 1 ? (
                   <>
                     {/* Content (Left) */}
-                    <div className="p-6 sm:p-8 flex flex-col justify-center order-1 md:order-1">
-                      {/* Header with Icon */}
+                    <div className="p-6 sm:p-8 flex flex-col justify-center h-full">
                       <div className={`p-5 rounded-2xl bg-gradient-to-r ${sec.gradient} text-white shadow-xl mb-6 inline-block w-fit`}>
                         <div className="flex items-center gap-4">
                           <div className="text-5xl animate-pulse">{sec.icon}</div>
-                          <div>
-                            <h3 className="text-2xl sm:text-3xl font-bold leading-tight">{sec.title}</h3>
-                          </div>
+                          <h3 className="text-2xl sm:text-3xl font-bold leading-tight">{sec.title}</h3>
                         </div>
                       </div>
 
-                      {/* Description */}
                       <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
                         {sec.desc}
                       </p>
 
-                      {/* Points */}
                       <div className="space-y-4">
                         {sec.points.map((point, i) => (
                           <motion.div
@@ -139,7 +135,7 @@ export default function WhyChoose() {
                     </div>
 
                     {/* Image (Right) */}
-                    <div className="relative h-64 md:h-full overflow-hidden order-2 md:order-2">
+                    <div className="relative h-full overflow-hidden">
                       <img
                         src={IMAGES[idx]}
                         alt={sec.title}
@@ -155,7 +151,7 @@ export default function WhyChoose() {
                 ) : (
                   <>
                     {/* Image (Left) */}
-                    <div className="relative h-64 md:h-full overflow-hidden">
+                    <div className="relative h-full overflow-hidden">
                       <img
                         src={IMAGES[idx]}
                         alt={sec.title}
@@ -169,23 +165,18 @@ export default function WhyChoose() {
                     </div>
 
                     {/* Content (Right) */}
-                    <div className="p-6 sm:p-8 flex flex-col justify-center">
-                      {/* Header with Icon */}
+                    <div className="p-6 sm:p-8 flex flex-col justify-center h-full">
                       <div className={`p-5 rounded-2xl bg-gradient-to-r ${sec.gradient} text-white shadow-xl mb-6 inline-block w-fit`}>
                         <div className="flex items-center gap-4">
                           <div className="text-5xl animate-pulse">{sec.icon}</div>
-                          <div>
-                            <h3 className="text-2xl sm:text-3xl font-bold leading-tight">{sec.title}</h3>
-                          </div>
+                          <h3 className="text-2xl sm:text-3xl font-bold leading-tight">{sec.title}</h3>
                         </div>
                       </div>
 
-                      {/* Description */}
                       <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
                         {sec.desc}
                       </p>
 
-                      {/* Points */}
                       <div className="space-y-4">
                         {sec.points.map((point, i) => (
                           <motion.div
