@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import assets from "../assets/assets";
 
 // Replace with your actual image or use a placeholder
-const BACKGROUND_IMAGE = "https://thumbs.dreamstime.com/b/play-ground-4613294.jpg";
+const BACKGROUND_IMAGE = assets.why1;
 
 const ChildCareSlider = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 })
