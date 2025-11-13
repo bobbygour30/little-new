@@ -74,7 +74,7 @@ export default function ContactUs() {
             Contact us
           </motion.h1>
 
-        
+
         </div>
 
         {/* Wavy Bottom Shape */}
@@ -108,22 +108,22 @@ export default function ContactUs() {
               {
                 icon: <FaPhoneAlt />,
                 title: "Call Us",
-                info: "+91 98765 43210",
+                info: "+91 9311550069",
                 sub: "Mon-Fri 8AM-6PM",
                 color: "from-green-400 to-emerald-500",
               },
               {
                 icon: <FaEnvelope />,
                 title: "Email Us",
-                info: "hello@littleblossoms.edu",
+                info: "info@littlecanvasedu.com",
                 sub: "We reply within 24 hrs",
                 color: "from-purple-400 to-pink-500",
               },
               {
                 icon: <FaMapMarkerAlt />,
                 title: "Visit Us",
-                info: "123 Rainbow Street, Mumbai",
-                sub: "Near Sunshine Park",
+                info: "1Plot 78, River Heights, Rajnagar Extention,",
+                sub: " Ghaziabad, UP, 201017",
                 color: "from-blue-400 to-cyan-500",
               },
               {
@@ -233,6 +233,7 @@ export default function ContactUs() {
             )}
           </motion.div>
 
+   
           {/* Map */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -240,22 +241,18 @@ export default function ContactUs() {
             transition={{ duration: 0.8 }}
             className="relative rounded-3xl overflow-hidden shadow-2xl"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-500 opacity-80 z-10"></div>
+
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.000!2d72.877!3d19.076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzM2LjAiTiA3MsKwNTMnMzcuMCJF!5e0!3m2!1sen!2sin!4v1698000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.492378188194!2d77.416112315382!3d28.680054982396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfa5e7d5c5c6d%3A0x9a5c5c5c5c5c5c5c!2sRiver%20Heights%2C%20Rajnagar%20Extension%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201017!5e0!3m2!1sen!2sin!4v1698000000000!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
               className="relative z-0"
-              title="Little Blossoms Location"
+              title="Little Canvas"
             ></iframe>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-white text-center">
-              <FaMapMarkerAlt className="text-6xl mb-2 animate-bounce" />
-              <p className="text-2xl font-bold">Little Blossoms Preschool</p>
-              <p>Mumbai, India</p>
-            </div>
+
           </motion.div>
         </div>
       </section>
