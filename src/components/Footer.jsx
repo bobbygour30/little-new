@@ -23,7 +23,7 @@ export default function Footer() {
               <img
                 src={assets.logo}
                 alt="Logo"
-                className="w-36 sm:48 rounded-full"
+                className="w-70 sm:w-82 sm:h-20 rounded"
               />
             </div>
             <span className="text-green-800 font-medium text-sm text-center lg:text-left">
@@ -45,28 +45,7 @@ export default function Footer() {
             <Link to="/about-us" className="hover:underline text-green-900 transition">About Us</Link>
           </motion.div>
 
-          {/* Newsletter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col items-center lg:items-end gap-3 w-full max-w-xs"
-          >
-            <span className="font-semibold text-green-900 mb-1">Join Our Newsletter</span>
-            <form className="flex gap-2 w-full">
-              <input
-                type="email"
-                className="flex-1 px-4 py-2 rounded-l-2xl border border-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 text-green-800 placeholder-green-500 transition"
-                placeholder="Your email"
-              />
-              <button className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-r-2xl font-bold transition transform hover:scale-105">
-                Join
-              </button>
-            </form>
-            <span className="text-green-700 text-xs mt-1 text-center lg:text-right">
-              Get updates on our programs & events!
-            </span>
-          </motion.div>
+          
         </div>
 
         {/* Divider */}
