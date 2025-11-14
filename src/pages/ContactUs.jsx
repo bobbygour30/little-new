@@ -15,6 +15,7 @@ import {
 } from "react-icons/fa";
 import assets from "../assets/assets";
 import PopupForm from "../components/PopupForm";
+import emailjs from '@emailjs/browser';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -45,11 +46,23 @@ export default function ContactUs() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTimeout(() => {
-      setSubmitted(true);
-      setFormData({ name: "", email: "", phone: "", message: "" });
-      setTimeout(() => setSubmitted(false), 5000);
-    }, 1000);
+
+    // EmailJS Configuration (replace with your actual keys)
+    const serviceId = 'service_g19mog5';        // Replace with your EmailJS Service ID
+    const templateId = 'template_wbo59ct';      // Replace with your EmailJS Template ID
+    const userId = 'iAYRhj4ne16M2tU9H';           // Replace with your EmailJS Public Key
+
+    emailjs.send(serviceId, templateId, formData, userId)
+      .then((response) => {
+        console.log('Email sent successfully!', response.status, response.text);
+        setSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        setTimeout(() => setSubmitted(false), 5000);
+      })
+      .catch((error) => {
+        console.error('Failed to send email:', error);
+        alert('Failed to send message. Please try again later.');
+      });
   };
 
   return (
@@ -77,8 +90,6 @@ export default function ContactUs() {
           >
             Contact us
           </motion.h1>
-
-
         </div>
 
         {/* Wavy Bottom Shape */}
@@ -232,42 +243,32 @@ export default function ContactUs() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-green-600 font-semibold text-center mt-4"
               >
-                Thank you! We'll bloom back to you soon! [flower]
+                Thank you! We'll bloom back to you soon!
               </motion.p>
             )}
           </motion.div>
 
-   
           {/* Map */}
           {/* Map - FULLY RESPONSIVE */}
-<motion.div
-  initial={{ opacity: 0, x: 50 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8 }}
-  className="relative rounded-3xl overflow-hidden shadow-2xl h-full min-h-96 lg:min-h-0"
->
-  {/* Responsive Container with 16:9 aspect ratio on mobile, full height on large screens */}
-  <div className="relative w-full h-full pt-[56.25%] lg:pt-0 lg:h-full">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.123456789!2d77.417303!3d28.7024251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sRiver%20Heights%2C%20Rajnagar%20Extension%2C%20Ghaziabad%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1720000000000!5m2!1sen!2sin"
-      className="absolute top-0 left-0 w-full h-full"
-      style={{ border: 0 }}
-      allowFullScreen=""
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      title="Plot 78, River Heights Location"
-    ></iframe>
-  </div>
-
-  {/* Optional: Overlay Label (Uncomment if you want it back) */}
-  {/*
-  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white text-center pointer-events-none">
-    <FaMapMarkerAlt className="text-5xl mb-2 animate-bounce" />
-    <p className="text-lg font-bold">Plot 78, River Heights</p>
-    <p className="text-sm">Ghaziabad, UP 201017</p>
-  </div>
-  */}
-</motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative rounded-3xl overflow-hidden shadow-2xl h-full min-h-96 lg:min-h-0"
+          >
+            {/* Responsive Container with 16:9 aspect ratio on mobile, full height on large screens */}
+            <div className="relative w-full h-full pt-[56.25%] lg:pt-0 lg:h-full">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.123456789!2d77.417303!3d28.7024251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sRiver%20Heights%2C%20Rajnagar%20Extension%2C%20Ghaziabad%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1720000000000!5m2!1sen!2sin"
+                className="absolute top-0 left-0 w-full h-full"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Plot 78, River Heights Location"
+              ></iframe>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -335,7 +336,7 @@ export default function ContactUs() {
             Book a FREE tour or virtual meet — spaces fill fast!
           </p>
           <motion.button
-          onClick={openPopup}
+            onClick={openPopup}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="px-12 py-5 bg-white text-[#4764c7] font-bold text-xl rounded-full shadow-xl"
