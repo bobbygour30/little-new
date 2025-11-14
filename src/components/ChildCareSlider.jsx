@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import assets from "../assets/assets";
 import PopupForm from './PopupForm';
 
-const BACKGROUND_IMAGE = assets.why1;
+const BACKGROUND_IMAGE = assets.banner;
 
 const ChildCareSlider = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);

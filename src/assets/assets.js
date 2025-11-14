@@ -10,6 +10,7 @@ import why3 from "./why3.jpeg";
 import why4 from "./why4.jpeg";
 import why5 from "./why5.jpeg";
 import why6 from "./why6.jpeg";
+import banner from "./banner.jpeg";
 const assets = {
     logo,
     about,
@@ -22,7 +23,8 @@ const assets = {
     why3,
     why4,
     why5,
-    why6
+    why6,
+    banner
 };
 
 export default assets;
