@@ -124,21 +124,21 @@ const Navbar = () => {
                   <Link
                     to="/about-us"
                     onClick={closeMobileMenu}
-                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
                   >
                     About Us
                   </Link>
                   <Link
                     to="/learning-process"
                     onClick={closeMobileMenu}
-                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
                   >
                     Learning Process
                   </Link>
                   <Link
                     to="/why"
                     onClick={closeMobileMenu}
-                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
                   >
                     Why Choose Us
                   </Link>
@@ -155,25 +155,7 @@ const Navbar = () => {
                 CLASSES
               </Link>
 
-              {/* BLOG */}
-              <Link
-                to="/blog"
-                onClick={closeMobileMenu}
-                className="flex items-center text-blue-500 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
-              >
-                <FaPen className="mr-2 text-lg" />
-                BLOG
-              </Link>
-
-              {/* PAGES */}
-              <Link
-                to="/pages"
-                onClick={closeMobileMenu}
-                className="flex items-center text-red-600 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
-              >
-                <FaLayerGroup className="mr-2 text-lg" />
-                PAGES
-              </Link>
+              
 
               {/* CONTACT */}
               <Link
