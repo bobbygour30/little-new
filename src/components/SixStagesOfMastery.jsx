@@ -19,7 +19,7 @@ import {
 import assets from "../assets/assets";
 
 // Replace with your own image or use this high-quality placeholder
-const BACKGROUND_IMAGE = assets.learning;
+const BACKGROUND_IMAGE = assets.learning2;
 
 const stages = [
   { num: "01", title: "The Environment", desc: "The engaging materials in the lab trigger the child.", color: "from-cyan-400 to-blue-500", icon: <GiWorld /> },
@@ -123,7 +123,7 @@ export default function LearningProcess() {
       {/* Content (on top of overlay) */}
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center">
         <h1 className="text-5xl sm:text-6xl font-black text-white mb-16 text-center leading-tight drop-shadow-xl">
-          Learning Process
+          Our Learning Process
         </h1>
 
         {/* Circular / Mobile Layout */}

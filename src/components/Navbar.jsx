@@ -3,12 +3,11 @@ import {
   FaHome,
   FaUser,
   FaBook,
-  FaPen,
-  FaLayerGroup,
   FaMapMarkerAlt,
   FaBars,
   FaTimes,
   FaChevronDown,
+  FaQuestionCircle,
 } from "react-icons/fa";
 import assets from "../assets/assets";
 import { Link } from "react-router-dom";
@@ -133,7 +132,14 @@ const Navbar = () => {
                     onClick={closeMobileMenu}
                     className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
                   >
-                    Learning Process
+                    Our Learning Process
+                  </Link>
+                  <Link
+                    to="/canvas-lab"
+                    onClick={closeMobileMenu}
+                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
+                  >
+                    Canvas Lab
                   </Link>
                   <Link
                     to="/why"
@@ -153,6 +159,14 @@ const Navbar = () => {
               >
                 <FaBook className="mr-2 text-lg" />
                 CLASSES
+              </Link>
+              <Link
+                to="/faq"
+                onClick={closeMobileMenu}
+                className="flex items-center text-orange-500 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
+              >
+                <FaQuestionCircle className="mr-2 text-lg" />
+                FAQ
               </Link>
 
               

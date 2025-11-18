@@ -10,6 +10,8 @@ import ContactUs from './pages/ContactUs';
 import AboutPrograms from './components/AboutPrograms';
 import Curriculum from './components/Curriculum';
 import WhyChoose from './components/WhyChoose';
+import CanvasLab from './pages/CanvasLab';
+import FAQPage from './pages/FAQPage';
 
 const App = () => {
   const { pathname } = useLocation();
@@ -34,6 +36,8 @@ const App = () => {
         <Route path="/about" element={<AboutPrograms />} />
         <Route path="/learning-process" element={<Curriculum />} />
         <Route path="/why" element={<WhyChoose />} />
+        <Route path="/canvas-lab" element={<CanvasLab />} />
+        <Route path="/faq" element={<FAQPage />} />
       </Routes>
       
       <Footer />

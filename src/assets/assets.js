@@ -4,6 +4,7 @@ import programs from "./programs.jpeg";
 import contact from "./contact.jpg";
 import bg from "./bg.jpg";
 import learning from "./learning.jpeg";
+import learning2 from "./learning2.jpeg";
 import why1 from "./why1.jpeg";
 import why2 from "./why2.jpeg";
 import why3 from "./why3.jpeg";
@@ -24,7 +25,8 @@ const assets = {
     why4,
     why5,
     why6,
-    banner
+    banner,
+    learning2
 };
 
 export default assets;
