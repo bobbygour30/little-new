@@ -53,134 +53,130 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="sticky top-0 z-50 bg-white shadow-md">
-        <div className="flex justify-between items-center px-4 md:px-8 py-3 max-w-7xl mx-auto">
-          {/* Logo */}
-          <div className="flex items-center">
-            <Link to="/">
-              <img src={assets.logo} alt="logo" className="w-50 sm:w-82 sm:h-20" />
+    <div className="w-full fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+      <div className="flex justify-between items-center px-4 md:px-8 py-3 max-w-7xl mx-auto">
+        {/* Logo */}
+        <div className="flex items-center">
+          <Link to="/">
+            <img src={assets.logo} alt="logo" className="w-50 sm:w-82 sm:h-20" />
+          </Link>
+        </div>
+
+        {/* Hamburger */}
+        <button
+          onClick={toggleMenu}
+          className="md:hidden text-purple-700 text-2xl focus:outline-none"
+        >
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        {/* Nav Links */}
+        <div
+          className={`${
+            isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+          } md:max-h-full md:opacity-100 overflow-hidden md:overflow-visible transition-all duration-500 ease-in-out flex flex-col md:flex-row md:items-center md:space-x-8 absolute md:static left-0 top-full w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none z-40`}
+        >
+          <div className="flex flex-col md:flex-row md:space-x-8 items-start md:items-center px-6 md:px-0 py-4 md:py-0 space-y-3 md:space-y-0 w-full">
+            
+            {/* HOME */}
+            <Link
+              to="/"
+              onClick={closeMobileMenu}
+              className="flex items-center text-green-500 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
+            >
+              <FaHome className="mr-2 text-lg" />
+              HOME
             </Link>
-          </div>
 
-          {/* Hamburger */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden text-purple-700 text-2xl focus:outline-none"
-          >
-            {isMenuOpen ? <FaTimes /> : <FaBars />}
-          </button>
-
-          {/* Nav Links */}
-          <div
-            className={`${
-              isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-            } md:max-h-full md:opacity-100 overflow-hidden md:overflow-visible transition-all duration-500 ease-in-out flex flex-col md:flex-row md:items-center md:space-x-8 absolute md:static left-0 top-full w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none z-40`}
-          >
-            <div className="flex flex-col md:flex-row md:space-x-8 items-start md:items-center px-6 md:px-0 py-4 md:py-0 space-y-3 md:space-y-0 w-full">
-              
-              {/* HOME */}
-              <Link
-                to="/"
-                onClick={closeMobileMenu}
-                className="flex items-center text-green-500 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
-              >
-                <FaHome className="mr-2 text-lg" />
-                HOME
-              </Link>
-
-              {/* ABOUT */}
+            {/* ABOUT */}
+            <div
+              className="relative w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
               <div
-                className="relative w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                onClick={toggleAbout}
+                className="flex items-center text-purple-700 hover:underline transition cursor-pointer w-full font-medium"
               >
-                <div
-                  onClick={toggleAbout}
-                  className="flex items-center text-purple-700 hover:underline transition cursor-pointer w-full font-medium"
-                >
-                  <FaUser className="mr-2 text-lg" />
-                  ABOUT
-                  <FaChevronDown
-                    className={`ml-1 text-xs transition-transform duration-300 ${
-                      isAboutOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </div>
-
-                {/* Dropdown */}
-                <div
-                  className={`${
-                    isMobile
-                      ? isAboutOpen
-                        ? "max-h-96 opacity-100"
-                        : "max-h-0 opacity-0"
-                      : isAboutOpen
-                      ? "max-h-96 opacity-100"
-                      : "max-h-0 opacity-0"
-                  } md:absolute md:left-0 md:top-full md:mt-2 w-full md:w-48 bg-white md:rounded-md md:shadow-lg overflow-hidden transition-all duration-300 ease-in-out z-50`}
-                >
-                  <Link
-                    to="/about-us"
-                    onClick={closeMobileMenu}
-                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
-                  >
-                    About Us
-                  </Link>
-                  <Link
-                    to="/learning-process"
-                    onClick={closeMobileMenu}
-                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
-                  >
-                    Our Learning Process
-                  </Link>
-                  <Link
-                    to="/canvas-lab"
-                    onClick={closeMobileMenu}
-                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
-                  >
-                    Canvas Lab
-                  </Link>
-                  <Link
-                    to="/why"
-                    onClick={closeMobileMenu}
-                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
-                  >
-                    Why Choose Us
-                  </Link>
-                </div>
+                <FaUser className="mr-2 text-lg" />
+                ABOUT
+                <FaChevronDown
+                  className={`ml-1 text-xs transition-transform duration-300 ${
+                    isAboutOpen ? "rotate-180" : ""
+                  }`}
+                />
               </div>
 
-              {/* CLASSES */}
-              <Link
-                to="/programs"
-                onClick={closeMobileMenu}
-                className="flex items-center text-orange-500 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
+              {/* Dropdown */}
+              <div
+                className={`${
+                  isMobile
+                    ? isAboutOpen
+                      ? "max-h-96 opacity-100"
+                      : "max-h-0 opacity-0"
+                    : isAboutOpen
+                    ? "max-h-96 opacity-100"
+                    : "max-h-0 opacity-0"
+                } md:absolute md:left-0 md:top-full md:mt-2 w-full md:w-48 bg-white md:rounded-md md:shadow-lg overflow-hidden transition-all duration-300 ease-in-out z-50`}
               >
-                <FaBook className="mr-2 text-lg" />
-                CLASSES
-              </Link>
-              <Link
-                to="/faq"
-                onClick={closeMobileMenu}
-                className="flex items-center text-orange-500 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
-              >
-                <FaQuestionCircle className="mr-2 text-lg" />
-                FAQ
-              </Link>
-
-              
-
-              {/* CONTACT */}
-              <Link
-                to="/contact"
-                onClick={closeMobileMenu}
-                className="flex items-center text-blue-900 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
-              >
-                <FaMapMarkerAlt className="mr-2 text-lg" />
-                CONTACT
-              </Link>
+                <Link
+                  to="/about-us"
+                  onClick={closeMobileMenu}
+                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
+                >
+                  About Us
+                </Link>
+                <Link
+                  to="/learning-process"
+                  onClick={closeMobileMenu}
+                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
+                >
+                  Our Learning Process
+                </Link>
+                <Link
+                  to="/canvas-lab"
+                  onClick={closeMobileMenu}
+                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
+                >
+                  Canvas Lab
+                </Link>
+                <Link
+                  to="/why"
+                  onClick={closeMobileMenu}
+                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition border-b border-gray-200 md:border-none"
+                >
+                  Why Choose Us
+                </Link>
+              </div>
             </div>
+
+            {/* CLASSES */}
+            <Link
+              to="/programs"
+              onClick={closeMobileMenu}
+              className="flex items-center text-orange-500 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
+            >
+              <FaBook className="mr-2 text-lg" />
+              CLASSES
+            </Link>
+            <Link
+              to="/faq"
+              onClick={closeMobileMenu}
+              className="flex items-center text-orange-500 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
+            >
+              <FaQuestionCircle className="mr-2 text-lg" />
+              FAQ
+            </Link>
+
+            {/* CONTACT */}
+            <Link
+              to="/contact"
+              onClick={closeMobileMenu}
+              className="flex items-center text-blue-900 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
+            >
+              <FaMapMarkerAlt className="mr-2 text-lg" />
+              CONTACT
+            </Link>
           </div>
         </div>
       </div>

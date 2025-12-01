@@ -124,7 +124,7 @@ export default function ContactUs() {
                 icon: <FaPhoneAlt />,
                 title: "Call Us",
                 info: "+91 9311550069",
-                sub: "Mon-Fri 8AM-6PM",
+                sub: "Mon-Fri 9AM-6PM",
                 color: "from-green-400 to-emerald-500",
               },
               {
@@ -144,7 +144,7 @@ export default function ContactUs() {
               {
                 icon: <FaClock />,
                 title: "Open Hours",
-                info: "7:00 AM - 7:00 PM",
+                info: "9:00 AM - 6:00 PM",
                 sub: "Weekend Tours Available",
                 color: "from-orange-400 to-red-500",
               },
