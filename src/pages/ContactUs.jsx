@@ -272,35 +272,7 @@ export default function ContactUs() {
         </div>
       </section>
 
-      {/* FAQ Quick Links */}
-      <section className="py-16 px-6 bg-purple-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-[#4764c7] mb-10">Quick Answers</h2>
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
-            {[
-              "When can I enroll?",
-              "What’s the fee structure?",
-              "Do you offer trials?",
-            ].map((q, i) => (
-              <motion.div
-                key={i}
-                variants={fadeInUp}
-                whileHover={{ scale: 1.1 }}
-                className="bg-white p-6 rounded-2xl shadow-md border-2 border-dashed border-purple-300 cursor-pointer"
-              >
-                <p className="font-semibold text-gray-800">{q}</p>
-                <p className="text-sm text-purple-600 mt-2">Click to chat!</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
+      
       {/* Social Connect */}
       <section className="py-16 px-6 text-center bg-gradient-to-b from-[#ffe8de] to-[#FFF6F2]">
         <h2 className="text-4xl font-bold text-[#4764c7] mb-8">Follow Our Journey</h2>

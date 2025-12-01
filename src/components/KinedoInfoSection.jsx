@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom"; // Assuming you're using React Router
 
 const faqs = [
   {
@@ -27,7 +28,7 @@ const faqs = [
 export default function KinedoInfoSection() {
   const [activeFAQ, setActiveFAQ] = useState(null);
 
-  const toggleFAQ = (index) => {
+  const toggleFAQ  = (index) => {
     setActiveFAQ(activeFAQ === index ? null : index);
   };
 
@@ -93,6 +94,30 @@ export default function KinedoInfoSection() {
               </motion.div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Beautiful Read More Button */}
+        <div className="flex justify-center mt-10">
+          <Link to="/faq">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-600 text-white font-bold text-lg rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Read More FAQs
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+              <motion.div
+                className="absolute inset-0 bg-white/20"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.6 }}
+              />
+            </motion.button>
+          </Link>
         </div>
       </div>
 
