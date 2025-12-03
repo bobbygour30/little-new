@@ -10,7 +10,7 @@ const PopupForm = ({ isOpen, onClose }) => {
     name: "",
     email: "",
     phone: "",
-    state: "",
+    location: "",      // ← changed from "state" to "location"
     category: "",
     message: "",
   });
@@ -25,10 +25,9 @@ const PopupForm = ({ isOpen, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // EmailJS Configuration (replace with your actual keys)
-    const serviceId = 'service_g19mog5';        // Replace with your EmailJS Service ID
-    const templateId = 'template_pw4jc3u';      // Replace with your EmailJS Template ID
-    const userId = 'iAYRhj4ne16M2tU9H';           // Replace with your EmailJS Public Key
+    const serviceId = 'service_g19mog5';
+    const templateId = 'template_pw4jc3u';
+    const userId = 'iAYRhj4ne16M2tU9H';
 
     emailjs.send(serviceId, templateId, formData, userId)
       .then((response) => {
@@ -38,7 +37,7 @@ const PopupForm = ({ isOpen, onClose }) => {
           name: "",
           email: "",
           phone: "",
-          state: "",
+          location: "",
           category: "",
           message: "",
         });
@@ -60,7 +59,7 @@ const PopupForm = ({ isOpen, onClose }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
         >
-          {/* Backdrop with blur */}
+          {/* Backdrop */}
           <motion.div
             className="absolute inset-0 bg-black/60"
             initial={{ opacity: 0 }}
@@ -70,7 +69,7 @@ const PopupForm = ({ isOpen, onClose }) => {
             style={{ backdropFilter: "blur(8px)" }}
           />
 
-          {/* Compact Modal – All Fields Kept */}
+          {/* Modal */}
           <motion.div
             className="relative bg-gradient-to-br from-[#FFDEE9] to-[#B5FFFC] p-5 md:p-6 rounded-3xl shadow-2xl w-full max-w-sm mx-auto border border-white/30"
             initial={{ scale: 0.8, y: 60, opacity: 0 }}
@@ -95,10 +94,10 @@ const PopupForm = ({ isOpen, onClose }) => {
             {/* Header */}
             <h2 className="text-center text-xl md:text-2xl font-bold text-[#002B5B] mb-4 leading-tight">
               Get in Touch <br />
-              <span className="text-pink-600 text-lg">Reply in 24 hrs</span>
+              <span className="text-pink-600 text-lg">Reply within 24 hours</span>
             </h2>
 
-            {/* Form – All 6 fields + consent + submit */}
+            {/* Form */}
             <form className="space-y-3" onSubmit={handleSubmit}>
               {/* Name */}
               <input
@@ -133,20 +132,16 @@ const PopupForm = ({ isOpen, onClose }) => {
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-400 focus:border-transparent outline-none text-sm"
               />
 
-              {/* State */}
-              <select
-                name="state"
-                value={formData.state}
+              {/* Location (replaced State) */}
+              <input
+                type="text"
+                name="location"
+                value={formData.location}
                 onChange={handleChange}
+                placeholder="Enter your location / city"
                 required
-                className="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white focus:ring-2 focus:ring-pink-400 focus:border-transparent outline-none text-sm"
-              >
-                <option value="">Select State</option>
-                <option>Delhi</option>
-                <option>Mumbai</option>
-                <option>Bangalore</option>
-                <option>Kolkata</option>
-              </select>
+                className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-400 focus:border-transparent outline-none text-sm"
+              />
 
               {/* Category */}
               <select
@@ -157,10 +152,10 @@ const PopupForm = ({ isOpen, onClose }) => {
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white focus:ring-2 focus:ring-pink-400 focus:border-transparent outline-none text-sm"
               >
                 <option value="">Category</option>
+                <option>Play</option>
                 <option>Nursery</option>
-                <option>Kindergarten</option>
-                <option>Primary</option>
-                <option>After School</option>
+                <option>LKG</option>
+                <option>UKG</option>
               </select>
 
               {/* Message */}

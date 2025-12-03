@@ -83,7 +83,7 @@ const ChildCareSlider = () => {
               onClick={openPopup}
               className="px-8 py-4 border-2 border-white text-white font-bold text-lg rounded-full hover:bg-black hover:bg-opacity-20 backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
             >
-              Book a Campus Tour
+              Admission Enquiry
             </button>
           </motion.div>
         </div>

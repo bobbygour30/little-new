@@ -10,12 +10,7 @@ import {
 } from "react-icons/fa";
 import assets from "../assets/assets";
 
-const stats = [
-  { icon: <FaChild />, value: "850+", label: "Happy Little Canvases" },
-  { icon: <FaUsers />, value: "70+", label: "Montessori-Trained Guides" },
-  { icon: <FaStar />, value: "4.9/5", label: "Parent Reviews" },
-  { icon: <FaBrain />, value: "100%", label: "NEP 2020 Aligned" },
-];
+
 
 const timeline = [
   {
@@ -89,21 +84,10 @@ const nepTableData = [
   },
 ];
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 60 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 },
-  },
-};
 
 export default function AboutUs() {
-  const [statsRef, statsInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
   const [philosophyRef, philosophyInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [curriculumRef, curriculumInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [timelineRef, timelineInView] = useInView({ triggerOnce: true });
@@ -328,39 +312,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section ref={statsRef} className="py-8 md:py-10 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate={statsInView ? "visible" : "hidden"}
-            className="grid grid-cols-2 gap-8 md:gap-10"
-          >
-            {stats.map((stat, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeInUp}
-                whileHover={{ scale: 1.1 }}
-                className="text-center bg-gradient-to-br from-purple-50 to-pink-50 p-6 md:p-8 rounded-3xl shadow-xl"
-              >
-                <div className="text-5xl md:text-6xl text-[#4764c7] mb-3 md:mb-4 flex justify-center">
-                  {stat.icon}
-                </div>
-                <motion.h3
-                  initial={{ scale: 0 }}
-                  animate={statsInView ? { scale: 1 } : {}}
-                  transition={{ delay: idx * 0.2, type: "spring", stiffness: 200 }}
-                  className="text-3xl md:text-4xl font-extrabold text-black"
-                >
-                  {stat.value}
-                </motion.h3>
-                <p className="text-sm md:text-base text-black mt-2 font-semibold">{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      
 
       {/* Final CTA */}
       <section className="py-20 md:py-24 bg-gradient-to-r from-[#4764c7] to-purple-700 text-white text-center">
