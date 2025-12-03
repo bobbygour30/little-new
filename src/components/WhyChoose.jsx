@@ -73,7 +73,7 @@ export default function WhyChoose() {
 
   return (
     <>
-      <section className="relative bg-gradient-to-b from-purple-50 via-pink-50 to-yellow-50 py-24 px-4 overflow-hidden">
+      <section className="relative bg-gradient-to-b from-purple-50 via-pink-50 to-yellow-50 py-24 px-4 overflow-hidden mt-10">
         {/* Floating Magic Dust */}
         <div className="absolute inset-0 pointer-events-none opacity-50">
           {[...Array(8)].map((_, i) => (

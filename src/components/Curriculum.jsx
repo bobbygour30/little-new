@@ -93,7 +93,7 @@ export default function Curriculum() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center overflow-hidden py-16 px-4 bg-cover bg-center bg-no-repeat"
+      className="relative min-h-screen flex flex-col items-center overflow-hidden py-16 px-4 bg-cover bg-center bg-no-repeat mt-20  "
       style={{
         backgroundImage: `url(${BACKGROUND_IMAGE})`,
       }}
