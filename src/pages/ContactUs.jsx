@@ -10,8 +10,8 @@ import {
   FaCheckCircle,
   FaInstagram,
   FaFacebookF,
-  FaTwitter,
   FaLinkedinIn,
+  FaYoutube,
 } from "react-icons/fa";
 import assets from "../assets/assets";
 import PopupForm from "../components/PopupForm";
@@ -130,7 +130,7 @@ export default function ContactUs() {
               {
                 icon: <FaEnvelope />,
                 title: "Email Us",
-                info: "info@littlecanvasedu.com",
+                info: "info@littlecanvasschool.com",
                 sub: "We reply within 24 hrs",
                 color: "from-purple-400 to-pink-500",
               },
@@ -259,14 +259,15 @@ export default function ContactUs() {
             {/* Responsive Container with 16:9 aspect ratio on mobile, full height on large screens */}
             <div className="relative w-full h-full pt-[56.25%] lg:pt-0 lg:h-full">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.123456789!2d77.417303!3d28.7024251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sRiver%20Heights%2C%20Rajnagar%20Extension%2C%20Ghaziabad%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1720000000000!5m2!1sen!2sin"
-                className="absolute top-0 left-0 w-full h-full"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Plot 78, River Heights Location"
-              ></iframe>
+  src="https://www.google.com/maps?q=28.702361,77.415861&hl=en&z=16&output=embed"
+  className="absolute top-0 left-0 w-full h-full"
+  style={{ border: 0 }}
+  allowFullScreen=""
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  title="Exact Location"
+></iframe>
+
             </div>
           </motion.div>
         </div>
@@ -276,18 +277,47 @@ export default function ContactUs() {
       {/* Social Connect */}
       <section className="py-16 px-6 text-center bg-gradient-to-b from-[#ffe8de] to-[#FFF6F2]">
         <h2 className="text-4xl font-bold text-[#4764c7] mb-8">Follow Our Journey</h2>
-        <div className="flex justify-center gap-6">
-          {[FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn].map((Icon, i) => (
-            <motion.a
-              key={i}
-              href="#"
-              whileHover={{ scale: 1.2, rotate: 360 }}
-              transition={{ duration: 0.5 }}
-              className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl text-[#4764c7] shadow-lg hover:shadow-xl border-2 border-purple-200"
-            >
-              <Icon />
-            </motion.a>
-          ))}
+        <div className="flex justify-center gap-6 flex-wrap">
+          <motion.a
+            href="https://www.instagram.com/littlecanvasschool?igsh=MWE5NmplNzQyN3JndQ=="
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.2, rotate: 360 }}
+            transition={{ duration: 0.5 }}
+            className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl text-[#4764c7] shadow-lg hover:shadow-xl border-2 border-purple-200"
+          >
+            <FaInstagram />
+          </motion.a>
+          <motion.a
+            href="https://www.facebook.com/share/1X6MwmwmHZ/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.2, rotate: 360 }}
+            transition={{ duration: 0.5 }}
+            className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl text-[#4764c7] shadow-lg hover:shadow-xl border-2 border-purple-200"
+          >
+            <FaFacebookF />
+          </motion.a>
+          <motion.a
+            href="https://www.youtube.com/@LittleCanvasSchool"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.2, rotate: 360 }}
+            transition={{ duration: 0.5 }}
+            className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl text-[#4764c7] shadow-lg hover:shadow-xl border-2 border-purple-200"
+          >
+            <FaYoutube />
+          </motion.a>
+          <motion.a
+            href="https://www.linkedin.com/company/littlecanvasschool/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.2, rotate: 360 }}
+            transition={{ duration: 0.5 }}
+            className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl text-[#4764c7] shadow-lg hover:shadow-xl border-2 border-purple-200"
+          >
+            <FaLinkedinIn />
+          </motion.a>
         </div>
         <p className="mt-8 text-gray-600 text-lg">
           Tag us @Littlecanvas — we love seeing your little ones shine! ✦
