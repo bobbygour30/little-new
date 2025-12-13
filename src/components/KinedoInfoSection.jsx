@@ -1,34 +1,29 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom"; // Assuming you're using React Router
+import { Sparkles, Heart, Shield, Users, Calendar, MessageCircle } from "lucide-react"; // Assuming lucide-react for icons
 
 const faqs = [
-  {
-    q: "What Is The Best Age To Start Kindergarten?",
-    a: "The ideal age to start kindergarten is usually between 4-6 years. Early learning helps children develop social, cognitive, and motor skills."
-  },
-  {
-    q: "Which Is The Best Preschool For Your Child?",
-    a: "Look for schools that offer a child-friendly environment, qualified staff, balanced curriculum, and interactive play-based learning."
-  },
-  {
-    q: "What Is The Tuition Fee On First Year?",
-    a: "Tuition fees vary depending on the program and facilities offered. Our school offers affordable plans to suit every family."
-  },
-  {
-    q: "How Do You Ensure Child Safety?",
-    a: "We implement biometric attendance, CCTV monitoring, child-safe classrooms, and trained staff to ensure children are safe at all times."
-  },
-  {
-    q: "Do You Involve Parents in Learning?",
-    a: "Yes! Monthly parent-teacher meetings and regular updates keep parents actively involved in their child's growth."
-  },
+  { q: "What makes Little Canvas different from other preschools?", a: "Little Canvas integrates the independence-focused Montessori Curriculum with the structured, hands-on learning of the Little Canvas Lab. This unique combination ensures children move from concrete practice to abstract mastery, delivering deep conceptual understanding far superior to standard rote learning.", icon: <Sparkles className="w-6 h-6" /> },
+  { q: "What exactly is the Little Canvas Lab, and how does my child use it?", a: "The Little Canvas Lab is a specialized, hands-on learning zone filled with hundreds of scientifically designed materials. Here, children work independently at their own pace, using the materials to physically discover and master core concepts in math, language, and life skills.", icon: <Heart className="w-6 h-6" /> },
+  { q: "What is the fundamental principle of Montessori education?", a: "The core principle of Montessori education, based on the work of Dr. Maria Montessori, is to facilitate the child's natural desire to learn within a \"prepared environment,\" fostering independence, concentration, and self-discipline.", icon: <Shield className="w-6 h-6" /> },
+  { q: "Is the Little Canvas curriculum the same as the pure Montessori method?", a: "No. Little Canvas curriculum is Montessori-inspired but is an evolved, practical curriculum. It combines Montessori's independence principles with the structure and assessments needed to align with modern educational standards and ensure seamless readiness for primary school.", icon: <Users className="w-6 h-6" /> },
+  { q: "What does a typical day look like?", a: "Our daily routine blends structured classroom work, free play, and a dedicated hour of hands-on Canvas Lab exploration.", icon: <Calendar className="w-6 h-6" /> },
+  { q: "How do you handle different learning speeds?", a: "Each child learns at their own pace—we offer individual attention and adapt activities to suit their needs.", icon: <Sparkles className="w-6 h-6" /> },
+  { q: "How do you ensure teacher quality?", a: "We select passionate educators who are not only qualified but also genuinely love children and learning. Along with this we provide primary teacher’s training to our teachers.", icon: <Users className="w-6 h-6" /> },
+  { q: "What is your teacher–student ratio?", a: "One dedicated teacher guides every 15 students (1:15 ratio), allowing us to closely nurture each child's development.", icon: <Heart className="w-6 h-6" /> },
+  { q: "How do you ensure children’s safety?", a: "We have secure entry/exit points, CCTV surveillance, trained staff, and a strict visitor policy.", icon: <Shield className="w-6 h-6" /> },
+  { q: "How do you communicate with parents?", a: "We share regular updates, photos, and progress reports through our parent app and WhatsApp groups.", icon: <MessageCircle className="w-6 h-6" /> },
+  { q: "Can parents visit the school anytime?", a: "Yes, visits are welcome but scheduled to avoid classroom disruption and maintain safety.", icon: <Calendar className="w-6 h-6" /> },
+  { q: "Do you celebrate festivals and special events?", a: "Yes! We celebrate cultural festivals, birthdays, theme days, and events to build social awareness and joy.", icon: <Sparkles className="w-6 h-6" /> },
+  { q: "When do admissions open?", a: "Admissions are open year-round, subject to seat availability.", icon: <Calendar className="w-6 h-6" /> },
+  { q: "What is your fee structure?", a: "Our fees vary by program; details are shared during your campus visit.", icon: <Heart className="w-6 h-6" /> },
 ];
 
 export default function KinedoInfoSection() {
   const [activeFAQ, setActiveFAQ] = useState(null);
 
-  const toggleFAQ  = (index) => {
+  const toggleFAQ = (index) => {
     setActiveFAQ(activeFAQ === index ? null : index);
   };
 
@@ -67,9 +62,14 @@ export default function KinedoInfoSection() {
                   ${activeFAQ === i ? "rounded-b-none border-b-0" : ""}
                 `}
               >
-                <span className="font-bold text-black text-lg sm:text-xl pr-4">
-                  {faq.q}
-                </span>
+                <div className="flex items-center gap-4">
+                  <div className="text-[#4764c7]">
+                    {faq.icon}
+                  </div>
+                  <span className="font-bold text-black text-lg sm:text-xl">
+                    {faq.q}
+                  </span>
+                </div>
                 <motion.span
                   animate={{ rotate: activeFAQ === i ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -88,7 +88,7 @@ export default function KinedoInfoSection() {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <div className="px-5 py-4 text-black bg-gradient-to-r from-orange-50 to-pink-50 rounded-b-2xl font-medium text-base sm:text-lg leading-relaxed border border-t-0 border-white/50 backdrop-blur-sm">
+                <div className="px-5 py-4 pl-14 text-black bg-gradient-to-r from-orange-50 to-pink-50 rounded-b-2xl font-medium text-base sm:text-lg leading-relaxed border border-t-0 border-white/50 backdrop-blur-sm">
                   {faq.a}
                 </div>
               </motion.div>
