@@ -9,15 +9,6 @@ const faqs = [
   { q: "What is the fundamental principle of Montessori education?", a: "The core principle of Montessori education, based on the work of Dr. Maria Montessori, is to facilitate the child's natural desire to learn within a \"prepared environment,\" fostering independence, concentration, and self-discipline.", icon: <Shield className="w-6 h-6" /> },
   { q: "Is the Little Canvas curriculum the same as the pure Montessori method?", a: "No. Little Canvas curriculum is Montessori-inspired but is an evolved, practical curriculum. It combines Montessori's independence principles with the structure and assessments needed to align with modern educational standards and ensure seamless readiness for primary school.", icon: <Users className="w-6 h-6" /> },
   { q: "What does a typical day look like?", a: "Our daily routine blends structured classroom work, free play, and a dedicated hour of hands-on Canvas Lab exploration.", icon: <Calendar className="w-6 h-6" /> },
-  { q: "How do you handle different learning speeds?", a: "Each child learns at their own pace—we offer individual attention and adapt activities to suit their needs.", icon: <Sparkles className="w-6 h-6" /> },
-  { q: "How do you ensure teacher quality?", a: "We select passionate educators who are not only qualified but also genuinely love children and learning. Along with this we provide primary teacher’s training to our teachers.", icon: <Users className="w-6 h-6" /> },
-  { q: "What is your teacher–student ratio?", a: "One dedicated teacher guides every 15 students (1:15 ratio), allowing us to closely nurture each child's development.", icon: <Heart className="w-6 h-6" /> },
-  { q: "How do you ensure children’s safety?", a: "We have secure entry/exit points, CCTV surveillance, trained staff, and a strict visitor policy.", icon: <Shield className="w-6 h-6" /> },
-  { q: "How do you communicate with parents?", a: "We share regular updates, photos, and progress reports through our parent app and WhatsApp groups.", icon: <MessageCircle className="w-6 h-6" /> },
-  { q: "Can parents visit the school anytime?", a: "Yes, visits are welcome but scheduled to avoid classroom disruption and maintain safety.", icon: <Calendar className="w-6 h-6" /> },
-  { q: "Do you celebrate festivals and special events?", a: "Yes! We celebrate cultural festivals, birthdays, theme days, and events to build social awareness and joy.", icon: <Sparkles className="w-6 h-6" /> },
-  { q: "When do admissions open?", a: "Admissions are open year-round, subject to seat availability.", icon: <Calendar className="w-6 h-6" /> },
-  { q: "What is your fee structure?", a: "Our fees vary by program; details are shared during your campus visit.", icon: <Heart className="w-6 h-6" /> },
 ];
 
 export default function KinedoInfoSection() {

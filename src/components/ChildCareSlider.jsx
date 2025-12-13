@@ -26,7 +26,7 @@ const ChildCareSlider = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center px-4 md:px-8 py-16 md:py-24 overflow-hidden"
+        className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center px-4 md:px-8 py-16 md:py-24 overflow-hidden mt-16"
         style={{
           backgroundImage: `url(${BACKGROUND_IMAGE})`,
           backgroundSize: 'cover',
