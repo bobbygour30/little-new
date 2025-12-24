@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
   {
-    src: "https://www.piggyride.com/blog/wp-content/uploads/2020/09/Untitled-design-2020-09-30T173432.196.png",
+    src: "https://www.shutterstock.com/image-photo/children-enjoying-art-class-painting-600nw-2473500545.jpg",
     title: "Creative Art Class",
     borderColor: "border-pink-400",
   },

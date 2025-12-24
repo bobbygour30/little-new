@@ -1,4 +1,5 @@
 import logo from "./logo.png";
+import logo2 from "./logo2.png";
 import about from "./about.jpeg";
 import programs from "./programs.jpeg";
 import contact from "./contact.jpg";
@@ -14,6 +15,7 @@ import why6 from "./why6.jpeg";
 import banner from "./banner.jpeg";
 const assets = {
     logo,
+    logo2,
     about,
     programs,
     contact,

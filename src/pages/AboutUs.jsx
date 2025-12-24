@@ -97,7 +97,7 @@ export default function AboutUs() {
     <div className="overflow-hidden">
 
       {/* ==================== HERO BANNER - ABOUT US ==================== */}
-      <section className="relative w-full h-[300px] md:h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 to-gray-700">
+      <section className="relative w-full h-[300px] md:h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 to-gray-700 mt-20">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0">
           <img

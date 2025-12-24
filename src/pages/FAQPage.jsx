@@ -29,7 +29,7 @@ export default function FAQPage() {
 
   return (
     <>
-      <section className="relative min-h-screen bg-gradient-to-b from-purple-50 via-pink-50 to-yellow-50 py-16 px-4 sm:px-6 overflow-hidden">
+      <section className="relative min-h-screen bg-gradient-to-b from-purple-50 via-pink-50 to-yellow-50 py-16 px-4 sm:px-6 overflow-hidden mt-20">
         {/* Floating Magic Dust */}
         <div className="absolute inset-0 pointer-events-none opacity-40">
           {[...Array(12)].map((_, i) => (

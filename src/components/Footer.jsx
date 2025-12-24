@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn } from "react-icons/fa";
 import { motion } from "framer-motion";
 import assets from "../assets/assets";
 import { Link } from "react-router-dom";
@@ -21,9 +21,9 @@ export default function Footer() {
           >
             <div className="flex items-center gap-2">
               <img
-                src={assets.logo}
+                src={assets.logo2}
                 alt="Logo"
-                className="w-70 sm:w-82 sm:h-20 rounded"
+                className="w-80  rounded"
               />
             </div>
             <span className="text-green-800 font-medium text-sm text-center lg:text-left">
@@ -59,15 +59,38 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             className="flex items-center space-x-4"
           >
-            {[FaFacebook, FaInstagram, FaTwitter, FaLinkedin].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="text-green-800 hover:text-blue-500 transition transform hover:scale-110"
-              >
-                <Icon size={22} />
-              </a>
-            ))}
+            <a
+              href="https://www.instagram.com/littlecanvasschool?igsh=MWE5NmplNzQyN3JndQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-800 hover:text-blue-500 transition transform hover:scale-110"
+            >
+              <FaInstagram size={22} />
+            </a>
+            <a
+              href="https://www.facebook.com/share/1X6MwmwmHZ/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-800 hover:text-blue-500 transition transform hover:scale-110"
+            >
+              <FaFacebookF size={22} />
+            </a>
+            <a
+              href="https://www.youtube.com/@LittleCanvasSchool"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-800 hover:text-blue-500 transition transform hover:scale-110"
+            >
+              <FaYoutube size={22} />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/littlecanvasschool/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-800 hover:text-blue-500 transition transform hover:scale-110"
+            >
+              <FaLinkedinIn size={22} />
+            </a>
           </motion.div>
 
           <motion.div
@@ -79,6 +102,8 @@ export default function Footer() {
             © {new Date().getFullYear()} Little Canvas. All rights reserved.
           </motion.div>
         </div>
+
+        
       </div>
     </footer>
   );

@@ -15,7 +15,7 @@ import {
 } from "react-icons/fa";
 import assets from "../assets/assets";
 import PopupForm from "../components/PopupForm";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -48,28 +48,28 @@ export default function ContactUs() {
     e.preventDefault();
 
     // EmailJS Configuration (replace with your actual keys)
-    const serviceId = 'service_g19mog5';        // Replace with your EmailJS Service ID
-    const templateId = 'template_wbo59ct';      // Replace with your EmailJS Template ID
-    const userId = 'iAYRhj4ne16M2tU9H';           // Replace with your EmailJS Public Key
+    const serviceId = "service_g19mog5"; // Replace with your EmailJS Service ID
+    const templateId = "template_wbo59ct"; // Replace with your EmailJS Template ID
+    const userId = "iAYRhj4ne16M2tU9H"; // Replace with your EmailJS Public Key
 
-    emailjs.send(serviceId, templateId, formData, userId)
+    emailjs
+      .send(serviceId, templateId, formData, userId)
       .then((response) => {
-        console.log('Email sent successfully!', response.status, response.text);
+        console.log("Email sent successfully!", response.status, response.text);
         setSubmitted(true);
         setFormData({ name: "", email: "", phone: "", message: "" });
         setTimeout(() => setSubmitted(false), 5000);
       })
       .catch((error) => {
-        console.error('Failed to send email:', error);
-        alert('Failed to send message. Please try again later.');
+        console.error("Failed to send email:", error);
+        alert("Failed to send message. Please try again later.");
       });
   };
 
   return (
     <div className="overflow-hidden">
-
       {/* ==================== HERO BANNER - CONTACT US ==================== */}
-      <section className="relative w-full h-[300px] md:h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 to-gray-700">
+      <section className="relative w-full h-[300px] md:h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 to-gray-700 mt-20">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0">
           <img
@@ -111,7 +111,10 @@ export default function ContactUs() {
       {/* ================================================================== */}
 
       {/* Contact Info Cards */}
-      <section ref={ref} className="py-16 px-6 bg-gradient-to-b from-[#FFF6F2] to-[#ffe8de]">
+      <section
+        ref={ref}
+        className="py-16 px-6 bg-gradient-to-b from-[#FFF6F2] to-[#ffe8de]"
+      >
         <div className="max-w-6xl mx-auto">
           <motion.div
             variants={stagger}
@@ -160,7 +163,9 @@ export default function ContactUs() {
                 >
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-[#4764c7] font-semibold">{item.info}</p>
                 <p className="text-sm text-gray-500 mt-1">{item.sub}</p>
               </motion.div>
@@ -179,7 +184,9 @@ export default function ContactUs() {
             transition={{ duration: 0.8 }}
             className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-10 shadow-2xl"
           >
-            <h2 className="text-4xl font-bold text-[#4764c7] mb-6">Send Us a Message</h2>
+            <h2 className="text-4xl font-bold text-[#4764c7] mb-6">
+              Send Us a Message
+            </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <input
@@ -259,24 +266,24 @@ export default function ContactUs() {
             {/* Responsive Container with 16:9 aspect ratio on mobile, full height on large screens */}
             <div className="relative w-full h-full pt-[56.25%] lg:pt-0 lg:h-full">
               <iframe
-  src="https://www.google.com/maps?q=28.702361,77.415861&hl=en&z=16&output=embed"
-  className="absolute top-0 left-0 w-full h-full"
-  style={{ border: 0 }}
-  allowFullScreen=""
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade"
-  title="Exact Location"
-></iframe>
-
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.574700125303!2d77.4161091!3d28.7023663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fe59d6ce61a77e3%3A0x5f08a423cf62e6e7!2sLittle%20Canvas%20Pre%20School!5e0!3m2!1sen!2sin!4v1766569247594!5m2!1sen!2sin"
+                className="absolute top-0 left-0 w-full h-full"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Exact Location"
+              ></iframe>
             </div>
           </motion.div>
         </div>
       </section>
 
-      
       {/* Social Connect */}
       <section className="py-16 px-6 text-center bg-gradient-to-b from-[#ffe8de] to-[#FFF6F2]">
-        <h2 className="text-4xl font-bold text-[#4764c7] mb-8">Follow Our Journey</h2>
+        <h2 className="text-4xl font-bold text-[#4764c7] mb-8">
+          Follow Our Journey
+        </h2>
         <div className="flex justify-center gap-6 flex-wrap">
           <motion.a
             href="https://www.instagram.com/littlecanvasschool?igsh=MWE5NmplNzQyN3JndQ=="

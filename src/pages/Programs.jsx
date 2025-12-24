@@ -63,7 +63,7 @@ const programs = [
   {
     level: "Level 0",
     title: "Play Group",
-    age: "Typically 1.5 - 2.5 Years",
+    age: "Typically 2 - 3 Years",
     icon: <GiBabyFace className="w-14 h-14 sm:w-20 sm:h-20 text-white drop-shadow-md" />,
     gradient: "from-pink-300 to-rose-400",
     bg: "bg-pink-50",
@@ -81,7 +81,7 @@ const programs = [
   {
     level: "Level 1",
     title: "Nursery",
-    age: "Typically 2.5 – 3.5 Years",
+    age: "Typically 3 – 4 Years",
     icon: <GiBookAura className="w-14 h-14 sm:w-20 sm:h-20" />,
     gradient: "from-purple-300 to-indigo-400",
     bg: "bg-purple-50",
@@ -98,7 +98,7 @@ const programs = [
   {
     level: "Level 2",
     title: "LKG",
-    age: "Typically 3.5-4.5 Years",
+    age: "Typically 4 - 5 Years",
     icon: <GiPencilBrush className="w-14 h-14 sm:w-20 sm:h-20" />,
     gradient: "from-orange-300 to-amber-400",
     bg: "bg-amber-50",
@@ -116,7 +116,7 @@ const programs = [
   {
     level: "Level 3",
     title: "UKG",
-    age: "Typically 4.5-5.5 Years",
+    age: "Typically 5 - 6 Years",
     icon: <GiRocket className="w-14 h-14 sm:w-20 sm:h-20" />,
     gradient: "from-sky-300 to-cyan-400",
     bg: "bg-cyan-50",
@@ -232,7 +232,7 @@ export default function Programs() {
     <div className="overflow-hidden">
 
       {/* ==================== HERO BANNER - PROGRAMS ==================== */}
-      <section className="relative w-full h-[300px] md:h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 to-gray-700">
+      <section className="relative w-full h-[300px] md:h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 to-gray-700 mt-20">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0">
           <img
