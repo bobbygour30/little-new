@@ -8,6 +8,7 @@ import {
   FaTimes,
   FaChevronDown,
   FaQuestionCircle,
+  FaImages, // ✅ GALLERY ICON
 } from "react-icons/fa";
 import assets from "../assets/assets";
 import { Link } from "react-router-dom";
@@ -77,7 +78,7 @@ const Navbar = () => {
           } md:max-h-full md:opacity-100 overflow-hidden md:overflow-visible transition-all duration-500 ease-in-out flex flex-col md:flex-row md:items-center md:space-x-8 absolute md:static left-0 top-full w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none z-40`}
         >
           <div className="flex flex-col md:flex-row md:space-x-8 items-start md:items-center px-6 md:px-0 py-4 md:py-0 space-y-3 md:space-y-0 w-full">
-            
+
             {/* HOME */}
             <Link
               to="/"
@@ -159,6 +160,18 @@ const Navbar = () => {
               <FaBook className="mr-2 text-lg" />
               CLASSES
             </Link>
+
+            {/* ✅ GALLERY (ADDED) */}
+            <Link
+              to="/gallery"
+              onClick={closeMobileMenu}
+              className="flex items-center text-pink-600 hover:underline transition font-medium w-full md:w-auto border-b border-gray-200 md:border-none pb-2 md:pb-0"
+            >
+              <FaImages className="mr-2 text-lg" />
+              GALLERY
+            </Link>
+
+            {/* FAQ */}
             <Link
               to="/faq"
               onClick={closeMobileMenu}
@@ -177,6 +190,7 @@ const Navbar = () => {
               <FaMapMarkerAlt className="mr-2 text-lg" />
               CONTACT
             </Link>
+
           </div>
         </div>
       </div>

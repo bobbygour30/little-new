@@ -12,6 +12,9 @@ import Curriculum from './components/Curriculum';
 import WhyChoose from './components/WhyChoose';
 import CanvasLab from './pages/CanvasLab';
 import FAQPage from './pages/FAQPage';
+import Gallery from './pages/Gallery';
+import AdminLogin from './pages/admin/AdminLogin';
+import AdminDashboard from './pages/admin/AdminDashboard';
 
 const App = () => {
   const { pathname } = useLocation();
@@ -38,6 +41,9 @@ const App = () => {
         <Route path="/why" element={<WhyChoose />} />
         <Route path="/canvas-lab" element={<CanvasLab />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
       
       <Footer />
