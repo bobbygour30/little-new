@@ -58,9 +58,9 @@ export default function Gallery() {
         </motion.p>
       </section>
 
-      {/* GALLERY GRID – images now full-width inside card */}
+      {/* GALLERY GRID – 3 columns on lg+, taller images */}
       <section className="py-20 bg-[#FFFDF7]">
-        <div className="max-w-7xl mx-auto px-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="max-w-7xl mx-auto px-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {galleryImages.map((img, index) => {
             const borderColor = borderColors[index % borderColors.length];
 
@@ -71,7 +71,7 @@ export default function Gallery() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
-                transition={{ delay: index * 0.06 }}
+                transition={{ delay: index * 0.08 }}
                 onClick={() => setActiveImage(img)}
                 className={`
                   group cursor-pointer rounded-2xl overflow-hidden
@@ -80,24 +80,22 @@ export default function Gallery() {
                   transition-all duration-400 flex flex-col
                 `}
               >
-                {/* Image takes full horizontal width – no side padding */}
-                <div className="overflow-hidden">
-                  <motion.img
-                    src={img.url}
-                    alt={img.title}
-                    className="
-                      w-full h-64 sm:h-72 md:h-80 object-cover 
-                      transition-transform duration-500 
-                      group-hover:scale-105 group-hover:rotate-[1.5deg]
-                    "
-                  />
-                </div>
+                {/* Image fills full width + more vertical space */}
+                <motion.img
+                  src={img.url}
+                  alt={img.title}
+                  className="
+                    w-full h-80 sm:h-96 lg:h-[28rem] object-cover 
+                    transition-transform duration-500 ease-out
+                    group-hover:scale-105 group-hover:rotate-[1.2deg]
+                  "
+                />
 
-                {/* Title area with padding only here */}
-                <div className="mt-5 pb-6 px-5 text-center">
+                {/* Title below – more breathing room */}
+                <div className="mt-5 pb-7 px-5 text-center">
                   <h3
                     className="
-                      text-xl sm:text-2xl font-bold text-gray-800
+                      text-xl sm:text-2xl lg:text-2xl font-bold text-gray-800
                       group-hover:text-[#4764c7] transition-colors duration-300
                     "
                   >
@@ -110,7 +108,7 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Modal – unchanged */}
+      {/* Modal unchanged */}
       <AnimatePresence>
         {activeImage && (
           <motion.div
