@@ -42,7 +42,7 @@ const ChildCareSlider = () => {
         }}
       >
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black opacity-60"></div>
+        {/* <div className="absolute inset-0 bg-black opacity-60"></div> */}
 
         {/* Floating Blobs */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
