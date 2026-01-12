@@ -10,7 +10,6 @@ const fadeUp = {
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-// Same colorful palette as before
 const borderColors = [
   "border-pink-400",
   "border-yellow-400",
@@ -36,7 +35,7 @@ export default function Gallery() {
 
   return (
     <>
-      {/* HEADER - unchanged */}
+      {/* HEADER unchanged */}
       <section className="py-24 bg-gradient-to-b from-[#FFF6F2] to-[#FFE8DE] text-center mt-20">
         <motion.h1
           initial="hidden"
@@ -47,7 +46,6 @@ export default function Gallery() {
         >
           Our Gallery
         </motion.h1>
-
         <motion.p
           initial="hidden"
           animate="visible"
@@ -60,7 +58,7 @@ export default function Gallery() {
         </motion.p>
       </section>
 
-      {/* GALLERY GRID - fixed version */}
+      {/* GALLERY GRID – images now full-width inside card */}
       <section className="py-20 bg-[#FFFDF7]">
         <div className="max-w-7xl mx-auto px-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {galleryImages.map((img, index) => {
@@ -78,28 +76,31 @@ export default function Gallery() {
                 className={`
                   group cursor-pointer rounded-2xl overflow-hidden
                   border-4 border-dashed ${borderColor}
-                  p-4 bg-white shadow-lg hover:shadow-2xl 
+                  bg-white shadow-lg hover:shadow-2xl 
                   transition-all duration-400 flex flex-col
                 `}
               >
-                <div className="rounded-xl overflow-hidden flex-1">
+                {/* Image takes full horizontal width – no side padding */}
+                <div className="overflow-hidden">
                   <motion.img
                     src={img.url}
                     alt={img.title}
                     className="
-                      w-full h-64 sm:h-72 object-cover 
+                      w-full h-64 sm:h-72 md:h-80 object-cover 
                       transition-transform duration-500 
                       group-hover:scale-105 group-hover:rotate-[1.5deg]
                     "
                   />
                 </div>
 
-                {/* Title BELOW the image - clean & centered */}
-                <div className="mt-4 text-center px-2">
-                  <h3 className="
-                    text-xl sm:text-2xl font-bold text-gray-800
-                    group-hover:text-[#4764c7] transition-colors duration-300
-                  ">
+                {/* Title area with padding only here */}
+                <div className="mt-5 pb-6 px-5 text-center">
+                  <h3
+                    className="
+                      text-xl sm:text-2xl font-bold text-gray-800
+                      group-hover:text-[#4764c7] transition-colors duration-300
+                    "
+                  >
                     {img.title}
                   </h3>
                 </div>
@@ -109,7 +110,7 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* MODAL - kept colorful dashed border, no big changes */}
+      {/* Modal – unchanged */}
       <AnimatePresence>
         {activeImage && (
           <motion.div
