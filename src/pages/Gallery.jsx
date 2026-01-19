@@ -22,20 +22,54 @@ const borderColors = [
   "border-indigo-400",
 ];
 
+/* 🌈 Skeleton Loader Card */
+const SkeletonCard = ({ index }) => {
+  const borderColor = borderColors[index % borderColors.length];
+
+  return (
+    <div
+      className={`
+        rounded-2xl overflow-hidden border-4 border-dashed ${borderColor}
+        bg-white shadow-lg animate-pulse
+      `}
+    >
+      <div className="h-80 sm:h-96 lg:h-[28rem] bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
+      <div className="mt-5 pb-7 px-5">
+        <div className="h-6 w-3/4 mx-auto bg-gray-200 rounded"></div>
+      </div>
+    </div>
+  );
+};
+
 export default function Gallery() {
   const [galleryImages, setGalleryImages] = useState([]);
   const [activeImage, setActiveImage] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let mounted = true;
+
     axios
       .get(`${API_URL}/api/gallery`)
-      .then((res) => setGalleryImages(res.data))
-      .catch((err) => console.error(err));
+      .then((res) => {
+        if (mounted) {
+          setGalleryImages(res.data);
+          setLoading(false);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   return (
     <>
-      {/* HEADER unchanged */}
+      {/* HEADER */}
       <section className="py-24 bg-gradient-to-b from-[#FFF6F2] to-[#FFE8DE] text-center mt-20">
         <motion.h1
           initial="hidden"
@@ -58,57 +92,63 @@ export default function Gallery() {
         </motion.p>
       </section>
 
-      {/* GALLERY GRID – 3 columns on lg+, taller images */}
+      {/* GALLERY GRID */}
       <section className="py-20 bg-[#FFFDF7]">
         <div className="max-w-7xl mx-auto px-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {galleryImages.map((img, index) => {
-            const borderColor = borderColors[index % borderColors.length];
+          {loading &&
+            Array.from({ length: 6 }).map((_, i) => (
+              <SkeletonCard key={i} index={i} />
+            ))}
 
-            return (
-              <motion.div
-                key={img._id}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                transition={{ delay: index * 0.08 }}
-                onClick={() => setActiveImage(img)}
-                className={`
-                  group cursor-pointer rounded-2xl overflow-hidden
-                  border-4 border-dashed ${borderColor}
-                  bg-white shadow-lg hover:shadow-2xl 
-                  transition-all duration-400 flex flex-col
-                `}
-              >
-                {/* Image fills full width + more vertical space */}
-                <motion.img
-                  src={img.url}
-                  alt={img.title}
-                  className="
-                    w-full h-80 sm:h-96 lg:h-[28rem] object-cover 
-                    transition-transform duration-500 ease-out
-                    group-hover:scale-105 group-hover:rotate-[1.2deg]
-                  "
-                />
+          {!loading &&
+            galleryImages.map((img, index) => {
+              const borderColor =
+                borderColors[index % borderColors.length];
 
-                {/* Title below – more breathing room */}
-                <div className="mt-5 pb-7 px-5 text-center">
-                  <h3
+              return (
+                <motion.div
+                  key={img._id}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  transition={{ delay: index * 0.06 }}
+                  onClick={() => setActiveImage(img)}
+                  className={`
+                    group cursor-pointer rounded-2xl overflow-hidden
+                    border-4 border-dashed ${borderColor}
+                    bg-white shadow-lg hover:shadow-2xl
+                    transition-all duration-300
+                  `}
+                >
+                  {/* Optimized Image */}
+                  <motion.img
+                    src={img.url}
+                    alt={img.title}
+                    loading="lazy"
+                    decoding="async"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.4 }}
                     className="
-                      text-xl sm:text-2xl lg:text-2xl font-bold text-gray-800
-                      group-hover:text-[#4764c7] transition-colors duration-300
+                      w-full h-80 sm:h-96 lg:h-[28rem] object-cover
+                      transition-transform duration-500
+                      group-hover:scale-105 group-hover:rotate-[1deg]
                     "
-                  >
-                    {img.title}
-                  </h3>
-                </div>
-              </motion.div>
-            );
-          })}
+                  />
+
+                  <div className="mt-1 pb-1  text-center">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 group-hover:text-[#4764c7] transition">
+                      {img.title}
+                    </h3>
+                  </div>
+                </motion.div>
+              );
+            })}
         </div>
       </section>
 
-      {/* Modal unchanged */}
+      {/* MODAL */}
       <AnimatePresence>
         {activeImage && (
           <motion.div
@@ -118,24 +158,24 @@ export default function Gallery() {
             className="fixed inset-0 z-50 bg-black/75 flex items-center justify-center px-4"
           >
             <motion.div
-              initial={{ scale: 0.88, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.88, opacity: 0 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
               className={`
-                relative max-w-5xl w-full bg-white rounded-3xl shadow-2xl 
+                relative max-w-5xl w-full bg-white rounded-3xl shadow-2xl
                 border-4 border-dashed ${borderColors[Math.floor(Math.random() * borderColors.length)]}
                 overflow-hidden
               `}
             >
               <button
                 onClick={() => setActiveImage(null)}
-                className="absolute top-4 right-4 z-10 bg-white/90 p-3 rounded-full hover:bg-gray-100 transition"
+                className="absolute top-4 right-4 z-10 bg-white/90 p-3 rounded-full hover:bg-gray-100"
               >
                 <X className="w-7 h-7 text-[#4764c7]" />
               </button>
 
-              <div className="bg-gradient-to-b from-gray-950 to-black max-h-[82vh]">
+              <div className="bg-black max-h-[82vh]">
                 <img
                   src={activeImage.url}
                   alt={activeImage.title}
@@ -143,7 +183,7 @@ export default function Gallery() {
                 />
               </div>
 
-              <div className="p-6 text-center bg-gradient-to-r from-[#4764c7]/5 to-[#4764c7]/10">
+              <div className="p-6 text-center bg-[#4764c7]/10">
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-[#4764c7]">
                   {activeImage.title}
                 </h3>
