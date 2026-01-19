@@ -32,7 +32,8 @@ export default function GalleryOfClasses() {
     axios
       .get(`${API_URL}/api/gallery`)
       .then((res) => {
-        setImages(res.data || []);
+        const latestSix = (res.data || []).slice(0, 6); // ✅ ONLY latest 6
+        setImages(latestSix);
         setLoading(false);
       })
       .catch((err) => {
