@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 import assets from "../assets/assets";
 import { Link } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa"; // ← added for WhatsApp icon
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,6 +54,10 @@ const Navbar = () => {
     }
   };
 
+  // WhatsApp link
+  const whatsappNumber = "+919311550069";
+  const whatsappLink = `https://wa.me/${whatsappNumber}`;
+
   return (
     <div className="w-full fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
       <div className="flex justify-between items-center px-4 md:px-8 py-3 max-w-7xl mx-auto">
@@ -78,7 +83,6 @@ const Navbar = () => {
           } md:max-h-full md:opacity-100 overflow-hidden md:overflow-visible transition-all duration-500 ease-in-out flex flex-col md:flex-row md:items-center md:space-x-8 absolute md:static left-0 top-full w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none z-40`}
         >
           <div className="flex flex-col md:flex-row md:space-x-8 items-start md:items-center px-6 md:px-0 py-4 md:py-0 space-y-3 md:space-y-0 w-full">
-
             {/* HOME */}
             <Link
               to="/"
@@ -190,10 +194,20 @@ const Navbar = () => {
               <FaMapMarkerAlt className="mr-2 text-lg" />
               CONTACT
             </Link>
-
           </div>
         </div>
       </div>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:bg-[#20bd57] transition-colors duration-300 hover:scale-110 active:scale-95"
+        aria-label="Chat on WhatsApp"
+      >
+        <FaWhatsapp className="text-white text-3xl" />
+      </a>
     </div>
   );
 };
